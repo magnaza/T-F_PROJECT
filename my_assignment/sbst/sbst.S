@@ -60,15 +60,65 @@ _start:
     # YOUR ASSEMBLY CODE #
 
 fede_part:    
-    la  t0, test_result
-    li  t2, 0xFFFFFFFF
-    mul t1, t2, t3
-    div t1, t2, t3
-    li  t3, 0x1
-    mul t1, t2, t3
-    div t1, t2, t3
-    li  t2, 0x0
-    li  t3, 0x0
+    la      t0, test_result
+    
+
+    # TEST 1 -> T2 = 0xFFFFFFFF T3 = 0x0 T1 = 0 #
+    
+    li      t2, 0xFFFFFFFF
+    mul     t1, t2, t3
+    mulh    t1, t2, t3
+    /* THEY ARE NOT RECOGNIZE BUT THE COMPILER???
+    mulsu   t1, t2, t3
+    mulu    t1, t2 ,t3
+    */
+    div     t1, t3, t2
+    divu    t1, t3, t2
+    rem     t1, t3, t2
+    remu    t1, t3, t2
+    
+
+
+    # TEST 2 -> T2 = 0xFFFFFFFF T3 = 0x1 T1 = 0xFFFFFFFF # 
+
+    li      t3, 0x1
+    mul     t1, t2, t3
+    mulh    t1, t2, t3
+    /*  THEY ARE NOT RECOGNIZE BUT THE COMPILER(again)
+    mulsu   t1, t2, t3
+    mulu    t1, t2 ,t3
+    */
+    div     t1, t2, t3
+    divu    t1, t2, t3
+
+    /* PROBLEM FOR REMINDER: HOW TO MAKE ALL THE BITS OF THE RESULT REMINDER 1?*/
+
+    # TEST 3 -> T2 = 0x0 T3 = 0xFFFFFFFF T1 = 0x0 #
+
+    li      t2, 0x0
+    li      t3, 0xFFFFFFFF
+    mul     t1, t2, t3
+    mulh    t1, t2, t3
+    /* THEY ARE NOT RECOGNIZE BUT THE COMPILER???
+    mulsu   t1, t2, t3
+    mulu    t1, t2 ,t3
+    */
+    div     t1, t2, t3
+    divu    t1, t2, t3
+    rem     t1, t2, t3
+    remu    t1, t2, t3
+
+    # TEST 4:EXCEPTION -> N/0 T2 = 0x0 T3 = 0xFFFFFFFF T1 = ?#
+    
+    div     t1, t3, t2
+    divu    t1, t3, t2
+    rem     t1, t3, t2
+    remu    t1, t3, t2
+
+    # RESTORE INITIAL VALUES #
+
+    li      t2, 0x0
+    li      t3, 0x0
     
 davideB_part:
 
