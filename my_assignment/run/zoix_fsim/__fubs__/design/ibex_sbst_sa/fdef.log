@@ -1,0 +1,20 @@
+
+                                   Z01X (TM)
+
+               Version R-2020.12-SP2 for linux64 - May 19, 2021 
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+Command: coats -dir ./ -fub design -test ibex_sbst_sa -recalc -m -l __fubs__/design/ibex_sbst_sa/fdef.log 
+
+Info:    Loading design       (11:01:38)
+Selected fault count: 43167
+Unselected fault count: 82029
+Info:    At 12/22/22 11:01:39 task complete.
+Info:    CPU Time: 1.4s ; Elapsed Time: 1.4s ; Data Size: 142.5MB 

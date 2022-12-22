@@ -1,0 +1,18 @@
+-------------------------------------------------------------------------------
+                               Testability Report                               
+                         Basis: Selected fault quality                          
+                   Report Date: Thursday, Dec 22 2022, 11:02
+                   
+                   Total: 125196  Prime: 125196  Collapsed: 0                   
+
+-------------------------------------------------------------------------------
+                         Tests already fault simulated                         
+-------------------------------------------------------------------------------
+ Test            Selected  Selected  Selected  Selected  Selected  
+ Name:           fault     fault     fault     untested  fault     
+                 quality:  count:    avg       faults:   avg       
+                                     tenacity:           test      
+                                                         count:    
+-------------------------------------------------------------------------------
+ ibex_sbst_sa     356.152     43167     31.87     43167      0.00  
+

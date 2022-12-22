@@ -1,0 +1,4 @@
+FaultGenerate
+{
+    NA [0,1] { PORT "ibex_top.**" }
+}

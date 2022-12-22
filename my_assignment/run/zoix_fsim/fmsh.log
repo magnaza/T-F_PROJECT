@@ -1,0 +1,1130 @@
+
+                                   Z01X (TM)
+
+       Version R-2020.12-SP2 for linux64 - May 19, 2021      
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Thu Dec 22 11:01:15 CET 2022
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+22/12/22 11:01:16  Note:    Reading load file:/home/s294571/my_assignment/zoix/stuck_at_fsim_vcd.fmsh
+> # Enable Fault Manager Verbosity  
+> set(var=[resources], messages=[all]) 
+22/12/22 11:01:16  Note:    Set resources[messages] to "all".
+> # Enhanced Synopsys Format  
+> set(var=[defines], format=[standard]) 
+22/12/22 11:01:16  Note:    Set defines[format] to "standard".
+> # Import Fault List  
+> set(var=[fdef], method=[fr], fr.fr=[$ROOT_PATH/run/zoix_fsim/fgen_z.rpt],abort=[error]) 
+22/12/22 11:01:16  Note:    Set fdef[fr.fr] to "/home/s294571/my_assignment/run/zoix_fsim/fgen_z.rpt".
+22/12/22 11:01:16  Note:    Set fdef[abort] to "error".
+22/12/22 11:01:16  Note:    Set fdef[method] to "fr".
+> # Disable Hyperfaults  
+> set(var=[fsim],hyperfault=[0]) 
+22/12/22 11:01:16  Note:    Set fsim[hyperfault] to 0.
+>  
+> # Load design into the fault manager  
+> design() 
+22/12/22 11:01:17  CMD: cp /home/s294571/my_assignment/run/zoix_fsim/fgen_z.rpt __globfiles__/fgen_z.rpt
+22/12/22 11:01:17  Note:    Generating design fault universe file
+22/12/22 11:01:17  CMD: /opt/ZOIX/R-2020.12-SP2/bin/fr2fdef -fr __globfiles__/fgen_z.rpt +warnreturn+0 +format+standard +verbose -l fr2fdef.log
+22/12/22 11:01:17  Note:    Job fr2fdef begun
+22/12/22 11:01:28  Note:    Job fr2fdef completed: Host: po
+22/12/22 11:01:28  Note:    Total: 125196 Prime: 125196 Collapsed: 0 Untestable: 0
+22/12/22 11:01:28  Note:    Fault Generation Completed 0 Errors 1 Warnings
+22/12/22 11:01:29  Note:    Created design, directory=/home/s294571/my_assignment/run/zoix_fsim
+22/12/22 11:01:29  CMD: /opt/ZOIX/R-2020.12-SP2/bin/coats -dir ./ -fub design -func __fubs__/design/__path__ -genfub +job_id+74cf72d036d8e22d -l __fubs__/design/design.log
+>  
+> # Add a test case  
+> addtst( 
+>>	    test=[ibex_sbst_sa],  
+>>	    stimtype=[vcd],  
+>>	    stim=[$ROOT_PATH/$VCD], 
+>>	    dut.stim=[ibex_top, tb_top.dut],  
+>>	    stim_options=[+TESTNAME=riscv_core] 
+>>	) 
+22/12/22 11:01:29  Note:    Adding test: ibex_sbst_sa
+22/12/22 11:01:29  CMD: ln -s ../../sim.zdb __tests__/ibex_sbst_sa/sim.zdb
+22/12/22 11:01:29  CMD: ln -s ../../zoix.sim __tests__/ibex_sbst_sa/zoix.sim
+22/12/22 11:01:29  CMD: cp /home/s294571/my_assignment/run/gate_tb_top_vcd.vcd __tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd
+22/12/22 11:01:29  CMD: ln -s ../../../__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd __fubs__/design/ibex_sbst_sa/gate_tb_top_vcd.vcd
+22/12/22 11:01:29  CMD: ln -s ../../../sim.zdb __fubs__/design/ibex_sbst_sa/sim.zdb
+22/12/22 11:01:29  CMD: ln -s ../../../zoix.sim __fubs__/design/ibex_sbst_sa/zoix.sim
+>  
+> # Invoke Fault Simulator  
+> fsim(test=[ibex_sbst_sa]) 
+22/12/22 11:01:30  Note:    Performing testability analysis
+22/12/22 11:01:30  CMD: ./zoix.sim -toggle __tests__/ibex_sbst_sa/ibex_sbst_sa.vtog -fstrobe __tests__/ibex_sbst_sa/__fstrobes__ -l __tests__/ibex_sbst_sa/zoix_rt.log +vcd+file+__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd +progress -testdir __tests__/ibex_sbst_sa/ +vcd+dut+ibex_top+tb_top.dut +TESTNAME=riscv_core -testname ibex_sbst_sa +job_id+d45f02b09608a28d
+22/12/22 11:01:30  Note:    Toggle simulation for test: ibex_sbst_sa
+22/12/22 11:01:30  Note:    Job toggle Test: ibex_sbst_sa begun
+22/12/22 11:01:31  Note:    Job toggle completed: Host: po Test: ibex_sbst_sa
+22/12/22 11:01:31  CMD: /opt/ZOIX/R-2020.12-SP2/bin/coats -dir ./ -fub design -test ibex_sbst_sa -seltyp observe +job_id+74cf72d036d8e22d -fstrobe __tests__/ibex_sbst_sa/__fstrobes__ -testid 65537 -l __fubs__/design/ibex_sbst_sa/coats.log
+22/12/22 11:01:31  Note:    Testability analysis for Test: ibex_sbst_sa
+22/12/22 11:01:31  Note:    Job coats Test: ibex_sbst_sa begun
+22/12/22 11:01:32  Note:    Job coats completed: Host: po Test: ibex_sbst_sa
+22/12/22 11:01:36  CMD: /opt/ZOIX/R-2020.12-SP2/bin/boots -fdeffiles __fubs__/design/fdeffiles.txt -record -dir ./ -fub design -fdef sim.fdef -l __fubs__/design/boots.log
+22/12/22 11:01:36  Note:    Job boots Test: All begun
+22/12/22 11:01:37  Note:    Job boots completed: Host: po Test: All
+22/12/22 11:01:38  Note:    Updating Testability Report
+22/12/22 11:01:38  Note:    Simulating Test: ibex_sbst_sa
+22/12/22 11:01:38  Note:    Fault simulation on Test: ibex_sbst_sa starting
+22/12/22 11:01:38  Note:    Generate fault origins for Test: ibex_sbst_sa
+22/12/22 11:01:38  CMD: /opt/ZOIX/R-2020.12-SP2/bin/coats -dir ./ -fub design -test ibex_sbst_sa -recalc -m -l __fubs__/design/ibex_sbst_sa/fdef.log
+22/12/22 11:01:38  Note:    Job coats Test: ibex_sbst_sa begun
+22/12/22 11:01:39  Note:    Job coats completed: Host: po Test: ibex_sbst_sa
+22/12/22 11:01:40  Note:    Test: ibex_sbst_sa selected 43167 out of 125196 remaining faults to simulate
+22/12/22 11:01:40  CMD: /opt/ZOIX/R-2020.12-SP2/bin/fault_sim -fdef __fubs__/design/ibex_sbst_sa/ibex_sbst_sa.fdef -q +vcd+file+__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd +vcd+dut+ibex_top+tb_top.dut +TESTNAME=riscv_core -fpp 2048 +limit+hyperfault+0 -testdir __fubs__/design/ibex_sbst_sa/ -l __fubs__/design/ibex_sbst_sa/simout-N0
+22/12/22 11:01:40  Note:    Fault simulation for Test: ibex_sbst_sa
+22/12/22 11:01:40  Note:    Job fault_sim Test: ibex_sbst_sa begun
+22/12/22 11:02:33  Note:    Job fault_sim completed: Host: po Test: ibex_sbst_sa
+22/12/22 11:02:33  Note:    Record simulation results for Test: ibex_sbst_sa
+22/12/22 11:02:36  CMD: /opt/ZOIX/R-2020.12-SP2/bin/boots -record -dir ./ -fub design -test ibex_sbst_sa -fdef sim.fdef -fntn 65537 __fubs__/design/ibex_sbst_sa/ibex_sbst_sa.fdef -l __fubs__/design/ibex_sbst_sa/boots.log
+22/12/22 11:02:36  Note:    Job boots Test: ibex_sbst_sa begun
+22/12/22 11:02:40  Note:    Job boots completed: Host: po Test: ibex_sbst_sa
+22/12/22 11:02:44  Note:    Simulation of test ibex_sbst_sa complete
+#                                Prime                  Total
+# Test: ibex_sbst_sa
+# Total Faults:                 125196                 125196
+# Detected Faults:                   0     0.00%            0     0.00%
+# Dropped Detected Faults:       21959    17.54%        21959    17.54%
+# Dropped Potential Faults:       4334     3.46%         4334     3.46%
+# Potential Faults:                  0     0.00%            0     0.00%
+# Not Detected Faults:           16874    13.48%        16874    13.48%
+# Not Strobed:                    6850     5.47%         6850     5.47%
+# Not Observed:                  60399    48.24%        60399    48.24%
+# Not Controlled:                14780    11.81%        14780    11.81%
+# Simulation Times:          
+#   Toggle:                   00:00:01
+#   Fault Cumulative:         00:00:43
+#   Fault Wall Clock:         00:01:02
+#
+# Cumulative Test Results
+# Total Faults:                 125196                 125196
+# Detected Faults:                   0     0.00%            0     0.00%
+# Dropped Detected Faults:       21959    17.54%        21959    17.54%
+# Dropped Potential Faults:       4334     3.46%         4334     3.46%
+# Potential Faults:                  0     0.00%            0     0.00%
+# Not Detected Faults:           16874    13.48%        16874    13.48%
+# Not Strobed:                    6850     5.47%         6850     5.47%
+# Not Observed:                  60399    48.24%        60399    48.24%
+# Not Controlled:                14780    11.81%        14780    11.81%
+#
+22/12/22 11:02:44  Note:    Simulation Completed.
+22/12/22 11:02:44  Note:    Updating Testability Report
+
+# Tests simulated in this session:
+#                                Prime                  Total
+# Test: ibex_sbst_sa
+# Total Faults:                 125196                 125196
+# Detected Faults:                   0     0.00%            0     0.00%
+# Dropped Detected Faults:       21959    17.54%        21959    17.54%
+# Dropped Potential Faults:       4334     3.46%         4334     3.46%
+# Potential Faults:                  0     0.00%            0     0.00%
+# Not Detected Faults:           16874    13.48%        16874    13.48%
+# Not Strobed:                    6850     5.47%         6850     5.47%
+# Not Observed:                  60399    48.24%        60399    48.24%
+# Not Controlled:                14780    11.81%        14780    11.81%
+# Simulation Times:          
+#   Toggle:                   00:00:01
+#   Fault Cumulative:         00:00:43
+#   Fault Wall Clock:         00:01:02
+#
+# Cumulative Test Results
+# Total Faults:                 125196                 125196
+# Detected Faults:                   0     0.00%            0     0.00%
+# Dropped Detected Faults:       21959    17.54%        21959    17.54%
+# Dropped Potential Faults:       4334     3.46%         4334     3.46%
+# Potential Faults:                  0     0.00%            0     0.00%
+# Not Detected Faults:           16874    13.48%        16874    13.48%
+# Not Strobed:                    6850     5.47%         6850     5.47%
+# Not Observed:                  60399    48.24%        60399    48.24%
+# Not Controlled:                14780    11.81%        14780    11.81%
+#
+# Test Coverage:                          19.27%                 19.27%
+#
+> fsimlog(test=[ibex_sbst_sa]) 
+------------------------------------------------------------------------
+            Fault simulation log simout-N0 for: ibex_sbst_sa            
+------------------------------------------------------------------------
+Simulating, pass 1...
+
+                                   Z01X (TM)
+
+               Version R-2020.12-SP2 for linux64 - May 19, 2021 
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+Command: zoix.sim -fault +vcd+file+__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd +vcd+dut+ibex_top+tb_top.dut +TESTNAME=riscv_core -fpp 2048 +limit+hyperfault+0 -testdir __fubs__/design/ibex_sbst_sa/ -fdef __fubs__/design/ibex_sbst_sa/ibex_sbst_sa.fdef -l __fubs__/design/ibex_sbst_sa/simout-N0-1 
+
+Info:    Simulation Started Thu Dec 22 11:01:40 2022
+Info:    Fault Simulation Pass 1  Host po
+
+Info:    Loading ...          (11:01:40)
+Info:    Initializing ...     (11:01:40)
+Warning! VCD file "__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd" contains
+signals that are below the vcd stimulus dut level. These signals will be
+ignored.
+Info:    Fault simulating 2048 faults, starting at fault: 0
+Info:    Simulating ...       (11:01:41)
+
+Info:    Fault Simulation Summary       Prime               Total
+Info:        Faults Simulated            2048                2048
+Info:        Detected Faults                0   (   0%)         0   (   0%)
+Info:        Dropped Detected Faults     1045   (  51%)      1045   (  51%)
+Info:        Potential Faults               0   (   0%)         0   (   0%)
+Info:        Dropped Potential Faults     214   (10.4%)       214   (10.4%)
+
+Info:    Last simulation time was at 1480000 ps
+Info:    Logic Events 69531
+Info:    Fault Events 804934
+Info:    Diverge Event Count 547235
+Info:    Peak Diverged Devices 200908
+Info:    Peak Diverged Memory 0 (bytes)
+Info:    0 Errors 1 Warnings
+Info:    CPU Time: 2.1s ; Elapsed Time: 2.1s ; Data Size: 219.3MB 
+Info:    Simulation Completed Thu Dec 22 11:01:42 2022
+Simulating, pass 2...
+
+                                   Z01X (TM)
+
+               Version R-2020.12-SP2 for linux64 - May 19, 2021 
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+Command: zoix.sim -xcode 1 -fault +vcd+file+__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd +vcd+dut+ibex_top+tb_top.dut +TESTNAME=riscv_core -fpp 2048 +limit+hyperfault+0 -testdir __fubs__/design/ibex_sbst_sa/ -fdef __fubs__/design/ibex_sbst_sa/ibex_sbst_sa.fdef -l __fubs__/design/ibex_sbst_sa/simout-N0-2 
+
+Info:    Simulation Started Thu Dec 22 11:01:42 2022
+Info:    Fault Simulation Pass 2  Host po
+
+Info:    Loading ...          (11:01:42)
+Info:    Initializing ...     (11:01:42)
+Warning! VCD file "__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd" contains
+signals that are below the vcd stimulus dut level. These signals will be
+ignored.
+Info:    Fault simulating 2048 faults, starting at fault: 2048
+Info:    Simulating ...       (11:01:43)
+
+Info:    Fault Simulation Summary       Prime               Total
+Info:        Faults Simulated            2048                2048
+Info:        Detected Faults                0   (   0%)         0   (   0%)
+Info:        Dropped Detected Faults     1038   (50.7%)      1038   (50.7%)
+Info:        Potential Faults               0   (   0%)         0   (   0%)
+Info:        Dropped Potential Faults     195   (9.52%)       195   (9.52%)
+
+Info:    Last simulation time was at 1480000 ps
+Info:    Logic Events 69531
+Info:    Fault Events 713127
+Info:    Diverge Event Count 517169
+Info:    Peak Diverged Devices 195967
+Info:    Peak Diverged Memory 0 (bytes)
+Info:    0 Errors 1 Warnings
+Info:    CPU Time: 2.1s ; Elapsed Time: 2.2s ; Data Size: 220.8MB 
+Info:    Simulation Completed Thu Dec 22 11:01:44 2022
+Simulating, pass 3...
+
+                                   Z01X (TM)
+
+               Version R-2020.12-SP2 for linux64 - May 19, 2021 
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+Command: zoix.sim -xcode 1 -fault +vcd+file+__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd +vcd+dut+ibex_top+tb_top.dut +TESTNAME=riscv_core -fpp 2048 +limit+hyperfault+0 -testdir __fubs__/design/ibex_sbst_sa/ -fdef __fubs__/design/ibex_sbst_sa/ibex_sbst_sa.fdef -l __fubs__/design/ibex_sbst_sa/simout-N0-3 
+
+Info:    Simulation Started Thu Dec 22 11:01:44 2022
+Info:    Fault Simulation Pass 3  Host po
+
+Info:    Loading ...          (11:01:44)
+Info:    Initializing ...     (11:01:45)
+Warning! VCD file "__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd" contains
+signals that are below the vcd stimulus dut level. These signals will be
+ignored.
+Info:    Fault simulating 2048 faults, starting at fault: 4096
+Info:    Simulating ...       (11:01:45)
+
+Info:    Fault Simulation Summary       Prime               Total
+Info:        Faults Simulated            2048                2048
+Info:        Detected Faults                0   (   0%)         0   (   0%)
+Info:        Dropped Detected Faults     1032   (50.4%)      1032   (50.4%)
+Info:        Potential Faults               0   (   0%)         0   (   0%)
+Info:        Dropped Potential Faults     232   (11.3%)       232   (11.3%)
+
+Info:    Last simulation time was at 1480000 ps
+Info:    Logic Events 69531
+Info:    Fault Events 855891
+Info:    Diverge Event Count 583263
+Info:    Peak Diverged Devices 242745
+Info:    Peak Diverged Memory 0 (bytes)
+Info:    0 Errors 1 Warnings
+Info:    CPU Time: 2.0s ; Elapsed Time: 2.1s ; Data Size: 220.2MB 
+Info:    Simulation Completed Thu Dec 22 11:01:46 2022
+Simulating, pass 4...
+
+                                   Z01X (TM)
+
+               Version R-2020.12-SP2 for linux64 - May 19, 2021 
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+Command: zoix.sim -xcode 1 -fault +vcd+file+__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd +vcd+dut+ibex_top+tb_top.dut +TESTNAME=riscv_core -fpp 2048 +limit+hyperfault+0 -testdir __fubs__/design/ibex_sbst_sa/ -fdef __fubs__/design/ibex_sbst_sa/ibex_sbst_sa.fdef -l __fubs__/design/ibex_sbst_sa/simout-N0-4 
+
+Info:    Simulation Started Thu Dec 22 11:01:46 2022
+Info:    Fault Simulation Pass 4  Host po
+
+Info:    Loading ...          (11:01:46)
+Info:    Initializing ...     (11:01:47)
+Warning! VCD file "__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd" contains
+signals that are below the vcd stimulus dut level. These signals will be
+ignored.
+Info:    Fault simulating 2048 faults, starting at fault: 6144
+Info:    Simulating ...       (11:01:47)
+
+Info:    Fault Simulation Summary       Prime               Total
+Info:        Faults Simulated            2048                2048
+Info:        Detected Faults                0   (   0%)         0   (   0%)
+Info:        Dropped Detected Faults      997   (48.7%)       997   (48.7%)
+Info:        Potential Faults               0   (   0%)         0   (   0%)
+Info:        Dropped Potential Faults     228   (11.1%)       228   (11.1%)
+
+Info:    Last simulation time was at 1480000 ps
+Info:    Logic Events 69531
+Info:    Fault Events 729740
+Info:    Diverge Event Count 502938
+Info:    Peak Diverged Devices 187548
+Info:    Peak Diverged Memory 0 (bytes)
+Info:    0 Errors 1 Warnings
+Info:    CPU Time: 2.1s ; Elapsed Time: 2.2s ; Data Size: 219.9MB 
+Info:    Simulation Completed Thu Dec 22 11:01:49 2022
+Simulating, pass 5...
+
+                                   Z01X (TM)
+
+               Version R-2020.12-SP2 for linux64 - May 19, 2021 
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+Command: zoix.sim -xcode 1 -fault +vcd+file+__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd +vcd+dut+ibex_top+tb_top.dut +TESTNAME=riscv_core -fpp 2048 +limit+hyperfault+0 -testdir __fubs__/design/ibex_sbst_sa/ -fdef __fubs__/design/ibex_sbst_sa/ibex_sbst_sa.fdef -l __fubs__/design/ibex_sbst_sa/simout-N0-5 
+
+Info:    Simulation Started Thu Dec 22 11:01:49 2022
+Info:    Fault Simulation Pass 5  Host po
+
+Info:    Loading ...          (11:01:49)
+Info:    Initializing ...     (11:01:49)
+Warning! VCD file "__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd" contains
+signals that are below the vcd stimulus dut level. These signals will be
+ignored.
+Info:    Fault simulating 2048 faults, starting at fault: 8192
+Info:    Simulating ...       (11:01:49)
+
+Info:    Fault Simulation Summary       Prime               Total
+Info:        Faults Simulated            2048                2048
+Info:        Detected Faults                0   (   0%)         0   (   0%)
+Info:        Dropped Detected Faults     1071   (52.3%)      1071   (52.3%)
+Info:        Potential Faults               0   (   0%)         0   (   0%)
+Info:        Dropped Potential Faults     211   (10.3%)       211   (10.3%)
+
+Info:    Last simulation time was at 1480000 ps
+Info:    Logic Events 69531
+Info:    Fault Events 713559
+Info:    Diverge Event Count 526157
+Info:    Peak Diverged Devices 179259
+Info:    Peak Diverged Memory 0 (bytes)
+Info:    0 Errors 1 Warnings
+Info:    CPU Time: 2.1s ; Elapsed Time: 2.2s ; Data Size: 220.5MB 
+Info:    Simulation Completed Thu Dec 22 11:01:51 2022
+Simulating, pass 6...
+
+                                   Z01X (TM)
+
+               Version R-2020.12-SP2 for linux64 - May 19, 2021 
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+Command: zoix.sim -xcode 1 -fault +vcd+file+__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd +vcd+dut+ibex_top+tb_top.dut +TESTNAME=riscv_core -fpp 2048 +limit+hyperfault+0 -testdir __fubs__/design/ibex_sbst_sa/ -fdef __fubs__/design/ibex_sbst_sa/ibex_sbst_sa.fdef -l __fubs__/design/ibex_sbst_sa/simout-N0-6 
+
+Info:    Simulation Started Thu Dec 22 11:01:51 2022
+Info:    Fault Simulation Pass 6  Host po
+
+Info:    Loading ...          (11:01:51)
+Info:    Initializing ...     (11:01:51)
+Warning! VCD file "__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd" contains
+signals that are below the vcd stimulus dut level. These signals will be
+ignored.
+Info:    Fault simulating 2048 faults, starting at fault: 10240
+Info:    Simulating ...       (11:01:52)
+
+Info:    Fault Simulation Summary       Prime               Total
+Info:        Faults Simulated            2048                2048
+Info:        Detected Faults                0   (   0%)         0   (   0%)
+Info:        Dropped Detected Faults     1030   (50.3%)      1030   (50.3%)
+Info:        Potential Faults               0   (   0%)         0   (   0%)
+Info:        Dropped Potential Faults     214   (10.4%)       214   (10.4%)
+
+Info:    Last simulation time was at 1480000 ps
+Info:    Logic Events 69531
+Info:    Fault Events 736110
+Info:    Diverge Event Count 543572
+Info:    Peak Diverged Devices 206610
+Info:    Peak Diverged Memory 0 (bytes)
+Info:    0 Errors 1 Warnings
+Info:    CPU Time: 2.2s ; Elapsed Time: 2.2s ; Data Size: 222.2MB 
+Info:    Simulation Completed Thu Dec 22 11:01:53 2022
+Simulating, pass 7...
+
+                                   Z01X (TM)
+
+               Version R-2020.12-SP2 for linux64 - May 19, 2021 
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+Command: zoix.sim -xcode 1 -fault +vcd+file+__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd +vcd+dut+ibex_top+tb_top.dut +TESTNAME=riscv_core -fpp 2048 +limit+hyperfault+0 -testdir __fubs__/design/ibex_sbst_sa/ -fdef __fubs__/design/ibex_sbst_sa/ibex_sbst_sa.fdef -l __fubs__/design/ibex_sbst_sa/simout-N0-7 
+
+Info:    Simulation Started Thu Dec 22 11:01:53 2022
+Info:    Fault Simulation Pass 7  Host po
+
+Info:    Loading ...          (11:01:53)
+Info:    Initializing ...     (11:01:54)
+Warning! VCD file "__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd" contains
+signals that are below the vcd stimulus dut level. These signals will be
+ignored.
+Info:    Fault simulating 2048 faults, starting at fault: 12288
+Info:    Simulating ...       (11:01:54)
+
+Info:    Fault Simulation Summary       Prime               Total
+Info:        Faults Simulated            2048                2048
+Info:        Detected Faults                0   (   0%)         0   (   0%)
+Info:        Dropped Detected Faults     1071   (52.3%)      1071   (52.3%)
+Info:        Potential Faults               0   (   0%)         0   (   0%)
+Info:        Dropped Potential Faults     201   (9.81%)       201   (9.81%)
+
+Info:    Last simulation time was at 1480000 ps
+Info:    Logic Events 69531
+Info:    Fault Events 719658
+Info:    Diverge Event Count 546505
+Info:    Peak Diverged Devices 196862
+Info:    Peak Diverged Memory 0 (bytes)
+Info:    0 Errors 1 Warnings
+Info:    CPU Time: 2.1s ; Elapsed Time: 2.2s ; Data Size: 220.0MB 
+Info:    Simulation Completed Thu Dec 22 11:01:55 2022
+Simulating, pass 8...
+
+                                   Z01X (TM)
+
+               Version R-2020.12-SP2 for linux64 - May 19, 2021 
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+Command: zoix.sim -xcode 1 -fault +vcd+file+__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd +vcd+dut+ibex_top+tb_top.dut +TESTNAME=riscv_core -fpp 2048 +limit+hyperfault+0 -testdir __fubs__/design/ibex_sbst_sa/ -fdef __fubs__/design/ibex_sbst_sa/ibex_sbst_sa.fdef -l __fubs__/design/ibex_sbst_sa/simout-N0-8 
+
+Info:    Simulation Started Thu Dec 22 11:01:55 2022
+Info:    Fault Simulation Pass 8  Host po
+
+Info:    Loading ...          (11:01:55)
+Info:    Initializing ...     (11:01:56)
+Warning! VCD file "__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd" contains
+signals that are below the vcd stimulus dut level. These signals will be
+ignored.
+Info:    Fault simulating 2048 faults, starting at fault: 14336
+Info:    Simulating ...       (11:01:56)
+
+Info:    Fault Simulation Summary       Prime               Total
+Info:        Faults Simulated            2048                2048
+Info:        Detected Faults                0   (   0%)         0   (   0%)
+Info:        Dropped Detected Faults     1070   (52.2%)      1070   (52.2%)
+Info:        Potential Faults               0   (   0%)         0   (   0%)
+Info:        Dropped Potential Faults     198   (9.67%)       198   (9.67%)
+
+Info:    Last simulation time was at 1480000 ps
+Info:    Logic Events 69531
+Info:    Fault Events 791902
+Info:    Diverge Event Count 573579
+Info:    Peak Diverged Devices 203073
+Info:    Peak Diverged Memory 0 (bytes)
+Info:    0 Errors 1 Warnings
+Info:    CPU Time: 2.2s ; Elapsed Time: 2.3s ; Data Size: 219.0MB 
+Info:    Simulation Completed Thu Dec 22 11:01:58 2022
+Simulating, pass 9...
+
+                                   Z01X (TM)
+
+               Version R-2020.12-SP2 for linux64 - May 19, 2021 
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+Command: zoix.sim -xcode 1 -fault +vcd+file+__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd +vcd+dut+ibex_top+tb_top.dut +TESTNAME=riscv_core -fpp 2048 +limit+hyperfault+0 -testdir __fubs__/design/ibex_sbst_sa/ -fdef __fubs__/design/ibex_sbst_sa/ibex_sbst_sa.fdef -l __fubs__/design/ibex_sbst_sa/simout-N0-9 
+
+Info:    Simulation Started Thu Dec 22 11:01:58 2022
+Info:    Fault Simulation Pass 9  Host po
+
+Info:    Loading ...          (11:01:58)
+Info:    Initializing ...     (11:01:58)
+Warning! VCD file "__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd" contains
+signals that are below the vcd stimulus dut level. These signals will be
+ignored.
+Info:    Fault simulating 2048 faults, starting at fault: 16384
+Info:    Simulating ...       (11:01:59)
+
+Info:    Fault Simulation Summary       Prime               Total
+Info:        Faults Simulated            2048                2048
+Info:        Detected Faults                0   (   0%)         0   (   0%)
+Info:        Dropped Detected Faults     1017   (49.7%)      1017   (49.7%)
+Info:        Potential Faults               0   (   0%)         0   (   0%)
+Info:        Dropped Potential Faults     205   (  10%)       205   (  10%)
+
+Info:    Last simulation time was at 1480000 ps
+Info:    Logic Events 69531
+Info:    Fault Events 769943
+Info:    Diverge Event Count 521772
+Info:    Peak Diverged Devices 181375
+Info:    Peak Diverged Memory 0 (bytes)
+Info:    0 Errors 1 Warnings
+Info:    CPU Time: 2.2s ; Elapsed Time: 2.3s ; Data Size: 222.8MB 
+Info:    Simulation Completed Thu Dec 22 11:02:00 2022
+Simulating, pass 10...
+
+                                   Z01X (TM)
+
+               Version R-2020.12-SP2 for linux64 - May 19, 2021 
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+Command: zoix.sim -xcode 1 -fault +vcd+file+__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd +vcd+dut+ibex_top+tb_top.dut +TESTNAME=riscv_core -fpp 2048 +limit+hyperfault+0 -testdir __fubs__/design/ibex_sbst_sa/ -fdef __fubs__/design/ibex_sbst_sa/ibex_sbst_sa.fdef -l __fubs__/design/ibex_sbst_sa/simout-N0-10 
+
+Info:    Simulation Started Thu Dec 22 11:02:00 2022
+Info:    Fault Simulation Pass 10  Host po
+
+Info:    Loading ...          (11:02:00)
+Info:    Initializing ...     (11:02:00)
+Warning! VCD file "__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd" contains
+signals that are below the vcd stimulus dut level. These signals will be
+ignored.
+Info:    Fault simulating 2048 faults, starting at fault: 18432
+Info:    Simulating ...       (11:02:01)
+
+Info:    Fault Simulation Summary       Prime               Total
+Info:        Faults Simulated            2048                2048
+Info:        Detected Faults                0   (   0%)         0   (   0%)
+Info:        Dropped Detected Faults     1021   (49.9%)      1021   (49.9%)
+Info:        Potential Faults               0   (   0%)         0   (   0%)
+Info:        Dropped Potential Faults     195   (9.52%)       195   (9.52%)
+
+Info:    Last simulation time was at 1480000 ps
+Info:    Logic Events 69531
+Info:    Fault Events 695128
+Info:    Diverge Event Count 496720
+Info:    Peak Diverged Devices 178539
+Info:    Peak Diverged Memory 0 (bytes)
+Info:    0 Errors 1 Warnings
+Info:    CPU Time: 2.2s ; Elapsed Time: 2.2s ; Data Size: 222.1MB 
+Info:    Simulation Completed Thu Dec 22 11:02:02 2022
+Simulating, pass 11...
+
+                                   Z01X (TM)
+
+               Version R-2020.12-SP2 for linux64 - May 19, 2021 
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+Command: zoix.sim -xcode 1 -fault +vcd+file+__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd +vcd+dut+ibex_top+tb_top.dut +TESTNAME=riscv_core -fpp 2048 +limit+hyperfault+0 -testdir __fubs__/design/ibex_sbst_sa/ -fdef __fubs__/design/ibex_sbst_sa/ibex_sbst_sa.fdef -l __fubs__/design/ibex_sbst_sa/simout-N0-11 
+
+Info:    Simulation Started Thu Dec 22 11:02:02 2022
+Info:    Fault Simulation Pass 11  Host po
+
+Info:    Loading ...          (11:02:02)
+Info:    Initializing ...     (11:02:03)
+Warning! VCD file "__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd" contains
+signals that are below the vcd stimulus dut level. These signals will be
+ignored.
+Info:    Fault simulating 2048 faults, starting at fault: 20480
+Info:    Simulating ...       (11:02:03)
+
+Info:    Fault Simulation Summary       Prime               Total
+Info:        Faults Simulated            2048                2048
+Info:        Detected Faults                0   (   0%)         0   (   0%)
+Info:        Dropped Detected Faults     1043   (50.9%)      1043   (50.9%)
+Info:        Potential Faults               0   (   0%)         0   (   0%)
+Info:        Dropped Potential Faults     216   (10.5%)       216   (10.5%)
+
+Info:    Last simulation time was at 1480000 ps
+Info:    Logic Events 69531
+Info:    Fault Events 697008
+Info:    Diverge Event Count 495589
+Info:    Peak Diverged Devices 179220
+Info:    Peak Diverged Memory 0 (bytes)
+Info:    0 Errors 1 Warnings
+Info:    CPU Time: 2.1s ; Elapsed Time: 2.1s ; Data Size: 221.7MB 
+Info:    Simulation Completed Thu Dec 22 11:02:04 2022
+Simulating, pass 12...
+
+                                   Z01X (TM)
+
+               Version R-2020.12-SP2 for linux64 - May 19, 2021 
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+Command: zoix.sim -xcode 1 -fault +vcd+file+__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd +vcd+dut+ibex_top+tb_top.dut +TESTNAME=riscv_core -fpp 2048 +limit+hyperfault+0 -testdir __fubs__/design/ibex_sbst_sa/ -fdef __fubs__/design/ibex_sbst_sa/ibex_sbst_sa.fdef -l __fubs__/design/ibex_sbst_sa/simout-N0-12 
+
+Info:    Simulation Started Thu Dec 22 11:02:04 2022
+Info:    Fault Simulation Pass 12  Host po
+
+Info:    Loading ...          (11:02:05)
+Info:    Initializing ...     (11:02:05)
+Warning! VCD file "__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd" contains
+signals that are below the vcd stimulus dut level. These signals will be
+ignored.
+Info:    Fault simulating 2048 faults, starting at fault: 22528
+Info:    Simulating ...       (11:02:05)
+
+Info:    Fault Simulation Summary       Prime               Total
+Info:        Faults Simulated            2048                2048
+Info:        Detected Faults                0   (   0%)         0   (   0%)
+Info:        Dropped Detected Faults     1031   (50.3%)      1031   (50.3%)
+Info:        Potential Faults               0   (   0%)         0   (   0%)
+Info:        Dropped Potential Faults     216   (10.5%)       216   (10.5%)
+
+Info:    Last simulation time was at 1480000 ps
+Info:    Logic Events 69531
+Info:    Fault Events 683713
+Info:    Diverge Event Count 483227
+Info:    Peak Diverged Devices 214850
+Info:    Peak Diverged Memory 0 (bytes)
+Info:    0 Errors 1 Warnings
+Info:    CPU Time: 2.2s ; Elapsed Time: 2.3s ; Data Size: 219.7MB 
+Info:    Simulation Completed Thu Dec 22 11:02:07 2022
+Simulating, pass 13...
+
+                                   Z01X (TM)
+
+               Version R-2020.12-SP2 for linux64 - May 19, 2021 
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+Command: zoix.sim -xcode 1 -fault +vcd+file+__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd +vcd+dut+ibex_top+tb_top.dut +TESTNAME=riscv_core -fpp 2048 +limit+hyperfault+0 -testdir __fubs__/design/ibex_sbst_sa/ -fdef __fubs__/design/ibex_sbst_sa/ibex_sbst_sa.fdef -l __fubs__/design/ibex_sbst_sa/simout-N0-13 
+
+Info:    Simulation Started Thu Dec 22 11:02:07 2022
+Info:    Fault Simulation Pass 13  Host po
+
+Info:    Loading ...          (11:02:07)
+Info:    Initializing ...     (11:02:07)
+Warning! VCD file "__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd" contains
+signals that are below the vcd stimulus dut level. These signals will be
+ignored.
+Info:    Fault simulating 2048 faults, starting at fault: 24576
+Info:    Simulating ...       (11:02:08)
+
+Info:    Fault Simulation Summary       Prime               Total
+Info:        Faults Simulated            2048                2048
+Info:        Detected Faults                0   (   0%)         0   (   0%)
+Info:        Dropped Detected Faults     1037   (50.6%)      1037   (50.6%)
+Info:        Potential Faults               0   (   0%)         0   (   0%)
+Info:        Dropped Potential Faults     205   (  10%)       205   (  10%)
+
+Info:    Last simulation time was at 1480000 ps
+Info:    Logic Events 69531
+Info:    Fault Events 647471
+Info:    Diverge Event Count 481784
+Info:    Peak Diverged Devices 181000
+Info:    Peak Diverged Memory 0 (bytes)
+Info:    0 Errors 1 Warnings
+Info:    CPU Time: 2.1s ; Elapsed Time: 2.1s ; Data Size: 219.6MB 
+Info:    Simulation Completed Thu Dec 22 11:02:09 2022
+Simulating, pass 14...
+
+                                   Z01X (TM)
+
+               Version R-2020.12-SP2 for linux64 - May 19, 2021 
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+Command: zoix.sim -xcode 1 -fault +vcd+file+__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd +vcd+dut+ibex_top+tb_top.dut +TESTNAME=riscv_core -fpp 2048 +limit+hyperfault+0 -testdir __fubs__/design/ibex_sbst_sa/ -fdef __fubs__/design/ibex_sbst_sa/ibex_sbst_sa.fdef -l __fubs__/design/ibex_sbst_sa/simout-N0-14 
+
+Info:    Simulation Started Thu Dec 22 11:02:09 2022
+Info:    Fault Simulation Pass 14  Host po
+
+Info:    Loading ...          (11:02:09)
+Info:    Initializing ...     (11:02:09)
+Warning! VCD file "__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd" contains
+signals that are below the vcd stimulus dut level. These signals will be
+ignored.
+Info:    Fault simulating 2048 faults, starting at fault: 26624
+Info:    Simulating ...       (11:02:10)
+
+Info:    Fault Simulation Summary       Prime               Total
+Info:        Faults Simulated            2048                2048
+Info:        Detected Faults                0   (   0%)         0   (   0%)
+Info:        Dropped Detected Faults     1072   (52.3%)      1072   (52.3%)
+Info:        Potential Faults               0   (   0%)         0   (   0%)
+Info:        Dropped Potential Faults     195   (9.52%)       195   (9.52%)
+
+Info:    Last simulation time was at 1480000 ps
+Info:    Logic Events 69531
+Info:    Fault Events 694691
+Info:    Diverge Event Count 552511
+Info:    Peak Diverged Devices 205452
+Info:    Peak Diverged Memory 0 (bytes)
+Info:    0 Errors 1 Warnings
+Info:    CPU Time: 2.3s ; Elapsed Time: 2.3s ; Data Size: 219.8MB 
+Info:    Simulation Completed Thu Dec 22 11:02:11 2022
+Simulating, pass 15...
+
+                                   Z01X (TM)
+
+               Version R-2020.12-SP2 for linux64 - May 19, 2021 
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+Command: zoix.sim -xcode 1 -fault +vcd+file+__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd +vcd+dut+ibex_top+tb_top.dut +TESTNAME=riscv_core -fpp 2048 +limit+hyperfault+0 -testdir __fubs__/design/ibex_sbst_sa/ -fdef __fubs__/design/ibex_sbst_sa/ibex_sbst_sa.fdef -l __fubs__/design/ibex_sbst_sa/simout-N0-15 
+
+Info:    Simulation Started Thu Dec 22 11:02:11 2022
+Info:    Fault Simulation Pass 15  Host po
+
+Info:    Loading ...          (11:02:11)
+Info:    Initializing ...     (11:02:12)
+Warning! VCD file "__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd" contains
+signals that are below the vcd stimulus dut level. These signals will be
+ignored.
+Info:    Fault simulating 2048 faults, starting at fault: 28672
+Info:    Simulating ...       (11:02:12)
+
+Info:    Fault Simulation Summary       Prime               Total
+Info:        Faults Simulated            2048                2048
+Info:        Detected Faults                0   (   0%)         0   (   0%)
+Info:        Dropped Detected Faults     1037   (50.6%)      1037   (50.6%)
+Info:        Potential Faults               0   (   0%)         0   (   0%)
+Info:        Dropped Potential Faults     204   (9.96%)       204   (9.96%)
+
+Info:    Last simulation time was at 1480000 ps
+Info:    Logic Events 69531
+Info:    Fault Events 742716
+Info:    Diverge Event Count 458213
+Info:    Peak Diverged Devices 205586
+Info:    Peak Diverged Memory 0 (bytes)
+Info:    0 Errors 1 Warnings
+Info:    CPU Time: 2.0s ; Elapsed Time: 2.0s ; Data Size: 220.4MB 
+Info:    Simulation Completed Thu Dec 22 11:02:13 2022
+Simulating, pass 16...
+
+                                   Z01X (TM)
+
+               Version R-2020.12-SP2 for linux64 - May 19, 2021 
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+Command: zoix.sim -xcode 1 -fault +vcd+file+__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd +vcd+dut+ibex_top+tb_top.dut +TESTNAME=riscv_core -fpp 2048 +limit+hyperfault+0 -testdir __fubs__/design/ibex_sbst_sa/ -fdef __fubs__/design/ibex_sbst_sa/ibex_sbst_sa.fdef -l __fubs__/design/ibex_sbst_sa/simout-N0-16 
+
+Info:    Simulation Started Thu Dec 22 11:02:13 2022
+Info:    Fault Simulation Pass 16  Host po
+
+Info:    Loading ...          (11:02:14)
+Info:    Initializing ...     (11:02:14)
+Warning! VCD file "__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd" contains
+signals that are below the vcd stimulus dut level. These signals will be
+ignored.
+Info:    Fault simulating 2048 faults, starting at fault: 30720
+Info:    Simulating ...       (11:02:14)
+
+Info:    Fault Simulation Summary       Prime               Total
+Info:        Faults Simulated            2048                2048
+Info:        Detected Faults                0   (   0%)         0   (   0%)
+Info:        Dropped Detected Faults     1078   (52.6%)      1078   (52.6%)
+Info:        Potential Faults               0   (   0%)         0   (   0%)
+Info:        Dropped Potential Faults     191   (9.33%)       191   (9.33%)
+
+Info:    Last simulation time was at 1480000 ps
+Info:    Logic Events 69531
+Info:    Fault Events 752029
+Info:    Diverge Event Count 479883
+Info:    Peak Diverged Devices 182717
+Info:    Peak Diverged Memory 0 (bytes)
+Info:    0 Errors 1 Warnings
+Info:    CPU Time: 2.1s ; Elapsed Time: 2.2s ; Data Size: 221.4MB 
+Info:    Simulation Completed Thu Dec 22 11:02:16 2022
+Simulating, pass 17...
+
+                                   Z01X (TM)
+
+               Version R-2020.12-SP2 for linux64 - May 19, 2021 
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+Command: zoix.sim -xcode 1 -fault +vcd+file+__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd +vcd+dut+ibex_top+tb_top.dut +TESTNAME=riscv_core -fpp 2048 +limit+hyperfault+0 -testdir __fubs__/design/ibex_sbst_sa/ -fdef __fubs__/design/ibex_sbst_sa/ibex_sbst_sa.fdef -l __fubs__/design/ibex_sbst_sa/simout-N0-17 
+
+Info:    Simulation Started Thu Dec 22 11:02:16 2022
+Info:    Fault Simulation Pass 17  Host po
+
+Info:    Loading ...          (11:02:16)
+Info:    Initializing ...     (11:02:16)
+Warning! VCD file "__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd" contains
+signals that are below the vcd stimulus dut level. These signals will be
+ignored.
+Info:    Fault simulating 2048 faults, starting at fault: 32768
+Info:    Simulating ...       (11:02:17)
+
+Info:    Fault Simulation Summary       Prime               Total
+Info:        Faults Simulated            2048                2048
+Info:        Detected Faults                0   (   0%)         0   (   0%)
+Info:        Dropped Detected Faults     1019   (49.8%)      1019   (49.8%)
+Info:        Potential Faults               0   (   0%)         0   (   0%)
+Info:        Dropped Potential Faults     221   (10.8%)       221   (10.8%)
+
+Info:    Last simulation time was at 1480000 ps
+Info:    Logic Events 69531
+Info:    Fault Events 760574
+Info:    Diverge Event Count 565771
+Info:    Peak Diverged Devices 232357
+Info:    Peak Diverged Memory 0 (bytes)
+Info:    0 Errors 1 Warnings
+Info:    CPU Time: 2.1s ; Elapsed Time: 2.1s ; Data Size: 223.3MB 
+Info:    Simulation Completed Thu Dec 22 11:02:18 2022
+Simulating, pass 18...
+
+                                   Z01X (TM)
+
+               Version R-2020.12-SP2 for linux64 - May 19, 2021 
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+Command: zoix.sim -xcode 1 -fault +vcd+file+__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd +vcd+dut+ibex_top+tb_top.dut +TESTNAME=riscv_core -fpp 2048 +limit+hyperfault+0 -testdir __fubs__/design/ibex_sbst_sa/ -fdef __fubs__/design/ibex_sbst_sa/ibex_sbst_sa.fdef -l __fubs__/design/ibex_sbst_sa/simout-N0-18 
+
+Info:    Simulation Started Thu Dec 22 11:02:18 2022
+Info:    Fault Simulation Pass 18  Host po
+
+Info:    Loading ...          (11:02:18)
+Info:    Initializing ...     (11:02:18)
+Warning! VCD file "__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd" contains
+signals that are below the vcd stimulus dut level. These signals will be
+ignored.
+Info:    Fault simulating 2048 faults, starting at fault: 34816
+Info:    Simulating ...       (11:02:19)
+
+Info:    Fault Simulation Summary       Prime               Total
+Info:        Faults Simulated            2048                2048
+Info:        Detected Faults                0   (   0%)         0   (   0%)
+Info:        Dropped Detected Faults     1056   (51.6%)      1056   (51.6%)
+Info:        Potential Faults               0   (   0%)         0   (   0%)
+Info:        Dropped Potential Faults     205   (  10%)       205   (  10%)
+
+Info:    Last simulation time was at 1480000 ps
+Info:    Logic Events 69531
+Info:    Fault Events 846542
+Info:    Diverge Event Count 534893
+Info:    Peak Diverged Devices 227689
+Info:    Peak Diverged Memory 0 (bytes)
+Info:    0 Errors 1 Warnings
+Info:    CPU Time: 2.2s ; Elapsed Time: 2.3s ; Data Size: 222.3MB 
+Info:    Simulation Completed Thu Dec 22 11:02:20 2022
+Simulating, pass 19...
+
+                                   Z01X (TM)
+
+               Version R-2020.12-SP2 for linux64 - May 19, 2021 
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+Command: zoix.sim -xcode 1 -fault +vcd+file+__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd +vcd+dut+ibex_top+tb_top.dut +TESTNAME=riscv_core -fpp 2048 +limit+hyperfault+0 -testdir __fubs__/design/ibex_sbst_sa/ -fdef __fubs__/design/ibex_sbst_sa/ibex_sbst_sa.fdef -l __fubs__/design/ibex_sbst_sa/simout-N0-19 
+
+Info:    Simulation Started Thu Dec 22 11:02:20 2022
+Info:    Fault Simulation Pass 19  Host po
+
+Info:    Loading ...          (11:02:20)
+Info:    Initializing ...     (11:02:21)
+Warning! VCD file "__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd" contains
+signals that are below the vcd stimulus dut level. These signals will be
+ignored.
+Info:    Fault simulating 2048 faults, starting at fault: 36864
+Info:    Simulating ...       (11:02:21)
+
+Info:    Fault Simulation Summary       Prime               Total
+Info:        Faults Simulated            2048                2048
+Info:        Detected Faults                0   (   0%)         0   (   0%)
+Info:        Dropped Detected Faults     1031   (50.3%)      1031   (50.3%)
+Info:        Potential Faults               0   (   0%)         0   (   0%)
+Info:        Dropped Potential Faults     167   (8.15%)       167   (8.15%)
+
+Info:    Last simulation time was at 1480000 ps
+Info:    Logic Events 69531
+Info:    Fault Events 709576
+Info:    Diverge Event Count 513691
+Info:    Peak Diverged Devices 215070
+Info:    Peak Diverged Memory 0 (bytes)
+Info:    0 Errors 1 Warnings
+Info:    CPU Time: 2.0s ; Elapsed Time: 2.0s ; Data Size: 220.5MB 
+Info:    Simulation Completed Thu Dec 22 11:02:22 2022
+Simulating, pass 20...
+
+                                   Z01X (TM)
+
+               Version R-2020.12-SP2 for linux64 - May 19, 2021 
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+Command: zoix.sim -xcode 1 -fault +vcd+file+__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd +vcd+dut+ibex_top+tb_top.dut +TESTNAME=riscv_core -fpp 2048 +limit+hyperfault+0 -testdir __fubs__/design/ibex_sbst_sa/ -fdef __fubs__/design/ibex_sbst_sa/ibex_sbst_sa.fdef -l __fubs__/design/ibex_sbst_sa/simout-N0-20 
+
+Info:    Simulation Started Thu Dec 22 11:02:22 2022
+Info:    Fault Simulation Pass 20  Host po
+
+Info:    Loading ...          (11:02:22)
+Info:    Initializing ...     (11:02:23)
+Warning! VCD file "__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd" contains
+signals that are below the vcd stimulus dut level. These signals will be
+ignored.
+Info:    Fault simulating 2048 faults, starting at fault: 38912
+Info:    Simulating ...       (11:02:23)
+
+Info:    Fault Simulation Summary       Prime               Total
+Info:        Faults Simulated            2048                2048
+Info:        Detected Faults                0   (   0%)         0   (   0%)
+Info:        Dropped Detected Faults     1045   (  51%)      1045   (  51%)
+Info:        Potential Faults               0   (   0%)         0   (   0%)
+Info:        Dropped Potential Faults     201   (9.81%)       201   (9.81%)
+
+Info:    Last simulation time was at 1480000 ps
+Info:    Logic Events 69531
+Info:    Fault Events 790577
+Info:    Diverge Event Count 605450
+Info:    Peak Diverged Devices 204676
+Info:    Peak Diverged Memory 0 (bytes)
+Info:    0 Errors 1 Warnings
+Info:    CPU Time: 2.1s ; Elapsed Time: 2.1s ; Data Size: 221.8MB 
+Info:    Simulation Completed Thu Dec 22 11:02:24 2022
+Simulating, pass 21...
+
+                                   Z01X (TM)
+
+               Version R-2020.12-SP2 for linux64 - May 19, 2021 
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+Command: zoix.sim -xcode 1 -fault +vcd+file+__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd +vcd+dut+ibex_top+tb_top.dut +TESTNAME=riscv_core -fpp 2048 +limit+hyperfault+0 -testdir __fubs__/design/ibex_sbst_sa/ -fdef __fubs__/design/ibex_sbst_sa/ibex_sbst_sa.fdef -l __fubs__/design/ibex_sbst_sa/simout-N0-21 
+
+Info:    Simulation Started Thu Dec 22 11:02:24 2022
+Info:    Fault Simulation Pass 21  Host po
+
+Info:    Loading ...          (11:02:24)
+Info:    Initializing ...     (11:02:25)
+Warning! VCD file "__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd" contains
+signals that are below the vcd stimulus dut level. These signals will be
+ignored.
+Info:    Fault simulating 2048 faults, starting at fault: 40960
+Info:    Simulating ...       (11:02:25)
+
+Info:    Fault Simulation Summary       Prime               Total
+Info:        Faults Simulated            2048                2048
+Info:        Detected Faults                0   (   0%)         0   (   0%)
+Info:        Dropped Detected Faults     1039   (50.7%)      1039   (50.7%)
+Info:        Potential Faults               0   (   0%)         0   (   0%)
+Info:        Dropped Potential Faults     199   (9.72%)       199   (9.72%)
+
+Info:    Last simulation time was at 1480000 ps
+Info:    Logic Events 69531
+Info:    Fault Events 747065
+Info:    Diverge Event Count 562281
+Info:    Peak Diverged Devices 204078
+Info:    Peak Diverged Memory 0 (bytes)
+Info:    0 Errors 1 Warnings
+Info:    CPU Time: 2.4s ; Elapsed Time: 2.4s ; Data Size: 222.4MB 
+Info:    Simulation Completed Thu Dec 22 11:02:27 2022
+Simulating, pass 22...
+
+                                   Z01X (TM)
+
+               Version R-2020.12-SP2 for linux64 - May 19, 2021 
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+Command: zoix.sim -xcode 1 -fault +vcd+file+__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd +vcd+dut+ibex_top+tb_top.dut +TESTNAME=riscv_core -fpp 2048 +limit+hyperfault+0 -testdir __fubs__/design/ibex_sbst_sa/ -fdef __fubs__/design/ibex_sbst_sa/ibex_sbst_sa.fdef -l __fubs__/design/ibex_sbst_sa/simout-N0-22 
+
+Info:    Simulation Started Thu Dec 22 11:02:27 2022
+Info:    Fault Simulation Pass 22  Host po
+
+Info:    Loading ...          (11:02:27)
+Info:    Initializing ...     (11:02:27)
+Warning! VCD file "__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd" contains
+signals that are below the vcd stimulus dut level. These signals will be
+ignored.
+Info:    Fault simulating 159 faults, starting at fault: 43008
+Info:    Simulating ...       (11:02:28)
+
+Info:    Fault Simulation Summary       Prime               Total
+Info:        Faults Simulated             159                 159
+Info:        Detected Faults                0   (   0%)         0   (   0%)
+Info:        Dropped Detected Faults       79   (49.7%)        79   (49.7%)
+Info:        Potential Faults               0   (   0%)         0   (   0%)
+Info:        Dropped Potential Faults      21   (13.2%)        21   (13.2%)
+
+Info:    Last simulation time was at 1480000 ps
+Info:    Logic Events 69531
+Info:    Fault Events 52412
+Info:    Diverge Event Count 35999
+Info:    Peak Diverged Devices 21390
+Info:    Peak Diverged Memory 0 (bytes)
+Info:    0 Errors 1 Warnings
+Info:    CPU Time: 1.3s ; Elapsed Time: 1.4s ; Data Size: 204.2MB 
+Info:    Simulation Completed Thu Dec 22 11:02:28 2022
+>  
+> # Report summaries 
+> coverage(file=[../ibex_sbst_sa_fc.sff]) 
+22/12/22 11:02:47  Note:    Running coverage analysis
+22/12/22 11:02:47  CMD: /opt/ZOIX/R-2020.12-SP2/bin/fault_report +fm -dir ./ +format+standard -out ../ibex_sbst_sa_fc.sff -testinfo __fubs__/testid.txt -l fault_report.log
+22/12/22 11:02:49  Note:    Job fault_report completed: Host: po
+22/12/22 11:02:49  Note:    Fault report file is ../ibex_sbst_sa_fc.sff
+> summary(file=[../ibex_sbst_sa_fsim_summary.txt])
+22/12/22 11:02:49  CMD: /opt/ZOIX/R-2020.12-SP2/bin/boots -summary -review -out ../ibex_sbst_sa_fsim_summary.txt -dir ./ -fdef sim.fdef -l history.log
+22/12/22 11:02:50  Note:    Summary report is ../ibex_sbst_sa_fsim_summary.txt
+22/12/22 11:02:50  Note:    Script file complete
+22/12/22 11:02:50  Note:    Thu Dec 22 11:02:50 CET 2022
+#                                Total Run Times                                 
+#
+#                              Queued             CPU               Wall  
+# Fault simulation            00:00:00          00:00:59          00:01:02
+# Toggle simulation           00:00:00          00:00:04          00:00:07
+#
+#
+#                            Time Allocation Per Tool                            
+#
+#                                   Queued                Running      
+# Fault simulation            00:00:00     0.00%     00:00:53    70.24%
+# Fault creation              00:00:00     0.00%     00:00:11    14.32%
+# Fault results recording     00:00:00     0.00%     00:00:06     7.39%
+# Testability                 00:00:00     0.00%     00:00:03     4.34%
+# Toggle simulation           00:00:00     0.00%     00:00:01     0.91%
+# Fault coverage              00:00:00     0.00%     00:00:02     2.79%
+#----------------------------------------------------------------------
+# Total                       00:00:00     0.00%     00:01:16   100.00%
+CPU Time: 65.5s ; Elapsed Time: 94.9s ; Data Size: 270.5MB

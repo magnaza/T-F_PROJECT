@@ -1,0 +1,1 @@
+__fubs__/design/ibex_sbst_sa/ibex_sbst_sa.fdef

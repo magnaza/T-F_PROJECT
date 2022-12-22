@@ -1,0 +1,28 @@
+# Enable Fault Manager Verbosity 
+set(var=[resources], messages=[all])
+# Enhanced Synopsys Format 
+set(var=[defines], format=[standard])
+# Import Fault List 
+set(var=[fdef], method=[fr], fr.fr=[$ROOT_PATH/run/zoix_fsim/fgen_z.rpt],abort=[error])
+# Disable Hyperfaults 
+set(var=[fsim],hyperfault=[0])
+
+# Load design into the fault manager 
+design()
+
+# Add a test case 
+addtst(
+    test=[ibex_sbst_sa], 
+    stimtype=[vcd], 
+    stim=[$ROOT_PATH/$VCD],
+    dut.stim=[ibex_top, tb_top.dut], 
+    stim_options=[+TESTNAME=riscv_core]
+)
+
+# Invoke Fault Simulator 
+fsim(test=[ibex_sbst_sa])
+fsimlog(test=[ibex_sbst_sa])
+
+# Report summaries
+coverage(file=[../ibex_sbst_sa_fc.sff])
+summary(file=[../ibex_sbst_sa_fsim_summary.txt])

@@ -1,0 +1,918 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/s294571/my_assignment/run
+vibex_alu
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z2 DXx4 work 8 ibex_pkg 0 22 GZRiZRln1HVC3_cbQ^eK`2
+Z3 !s110 1671703251
+!i10b 1
+!s100 Mg8?LiR?Q`NF05mzfnkIP0
+IX9JE>SLgWfl=_=bOQ<>0Y0
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+!s105 ibex_alu_sv_unit
+S1
+R0
+Z5 w1670327045
+8/home/s294571/my_assignment/rtl/ibex_alu.sv
+F/home/s294571/my_assignment/rtl/ibex_alu.sv
+L0 9
+Z6 OL;L;10.5c_4;63
+r1
+!s85 0
+31
+Z7 !s108 1671703251.000000
+Z8 !s107 /home/s294571/my_assignment/tb/utils.sv|/home/s294571/my_assignment/rtl/ibex_tracer_pkg.sv|/home/s294571/my_assignment/vendor/lowrisc_ip/ip/prim_generic/rtl/prim_generic_buf.sv|/home/s294571/my_assignment/dv/uvm/core_ibex/common/prim/prim_buf.sv|/home/s294571/my_assignment/vendor/lowrisc_ip/ip/prim_generic/rtl/prim_generic_clock_gating.sv|/home/s294571/my_assignment/dv/uvm/core_ibex/common/prim/prim_pkg.sv|/home/s294571/my_assignment/dv/uvm/core_ibex/common/prim/prim_clock_gating.sv|/home/s294571/my_assignment/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_pkg.sv|/home/s294571/my_assignment/vendor/lowrisc_ip/ip/prim/rtl/prim_ram_1p_pkg.sv|/home/s294571/my_assignment/rtl/ibex_pmp_reset_default.svh|/home/s294571/my_assignment/vendor/lowrisc_ip/dv/sv/dv_utils//dv_fcov_macros.svh|/home/s294571/my_assignment/vendor/lowrisc_ip/ip/prim/rtl/prim_flop_macros.sv|/home/s294571/my_assignment/vendor/lowrisc_ip/ip/prim/rtl/prim_assert_sec_cm.svh|/home/s294571/my_assignment/vendor/lowrisc_ip/ip/prim/rtl/prim_assert_standard_macros.svh|/home/s294571/my_assignment/vendor/lowrisc_ip/ip/prim/rtl/prim_assert.sv|/home/s294571/my_assignment/tb/tb_top.sv|/home/s294571/my_assignment/tb/tb_ram.sv|/home/s294571/my_assignment/rtl/ibex_tracer.sv|/home/s294571/my_assignment/rtl/ibex_top.sv|/home/s294571/my_assignment/rtl/ibex_core.sv|/home/s294571/my_assignment/rtl/ibex_register_file_ff.sv|/home/s294571/my_assignment/rtl/ibex_fetch_fifo.sv|/home/s294571/my_assignment/rtl/ibex_prefetch_buffer.sv|/home/s294571/my_assignment/rtl/ibex_multdiv_fast.sv|/home/s294571/my_assignment/rtl/ibex_multdiv_slow.sv|/home/s294571/my_assignment/rtl/ibex_load_store_unit.sv|/home/s294571/my_assignment/rtl/ibex_wb_stage.sv|/home/s294571/my_assignment/rtl/ibex_if_stage.sv|/home/s294571/my_assignment/rtl/ibex_id_stage.sv|/home/s294571/my_assignment/rtl/ibex_ex_block.sv|/home/s294571/my_assignment/rtl/ibex_decoder.sv|/home/s294571/my_assignment/rtl/ibex_cs_registers.sv|/home/s294571/my_assignment/rtl/ibex_csr.sv|/home/s294571/my_assignment/rtl/ibex_counter.sv|/home/s294571/my_assignment/rtl/ibex_controller.sv|/home/s294571/my_assignment/rtl/ibex_compressed_decoder.sv|/home/s294571/my_assignment/rtl/ibex_alu.sv|/home/s294571/my_assignment/rtl/ibex_pkg.sv|
+Z9 !s90 -work|work_rtl|-sv|-incr|-suppress|2583|-cover|t|+acc=rnbpc|+incdir+/home/s294571/my_assignment/tb|+incdir+/home/s294571/my_assignment/rtl|+incdir+/home/s294571/my_assignment/vendor/lowrisc_ip/ip/prim/rtl|+incdir+/home/s294571/my_assignment/vendor/lowrisc_ip/ip/prim_generic/rtl|+incdir+/home/s294571/my_assignment/vendor/lowrisc_ip/dv/sv/dv_utils/|+incdir+/home/s294571/my_assignment/dv/uvm/core_ibex/common/prim|+define+QUESTASIM|+define+RVFI|/home/s294571/my_assignment/rtl/ibex_pkg.sv|/home/s294571/my_assignment/rtl/ibex_alu.sv|/home/s294571/my_assignment/rtl/ibex_compressed_decoder.sv|/home/s294571/my_assignment/rtl/ibex_controller.sv|/home/s294571/my_assignment/rtl/ibex_counter.sv|/home/s294571/my_assignment/rtl/ibex_csr.sv|/home/s294571/my_assignment/rtl/ibex_cs_registers.sv|/home/s294571/my_assignment/rtl/ibex_decoder.sv|/home/s294571/my_assignment/rtl/ibex_ex_block.sv|/home/s294571/my_assignment/rtl/ibex_id_stage.sv|/home/s294571/my_assignment/rtl/ibex_if_stage.sv|/home/s294571/my_assignment/rtl/ibex_wb_stage.sv|/home/s294571/my_assignment/rtl/ibex_load_store_unit.sv|/home/s294571/my_assignment/rtl/ibex_multdiv_slow.sv|/home/s294571/my_assignment/rtl/ibex_multdiv_fast.sv|/home/s294571/my_assignment/rtl/ibex_prefetch_buffer.sv|/home/s294571/my_assignment/rtl/ibex_fetch_fifo.sv|/home/s294571/my_assignment/rtl/ibex_register_file_ff.sv|/home/s294571/my_assignment/rtl/ibex_core.sv|/home/s294571/my_assignment/rtl/ibex_top.sv|/home/s294571/my_assignment/rtl/ibex_tracer.sv|/home/s294571/my_assignment/tb/tb_ram.sv|/home/s294571/my_assignment/tb/tb_top.sv|
+!i113 0
+Z10 !s102 -cover t
+Z11 o-suppress 2583 -work work_rtl -sv -cover t +acc=rnbpc -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z12 !s92 -suppress 2583 -work work_rtl -sv -cover t +acc=rnbpc +incdir+/home/s294571/my_assignment/tb +incdir+/home/s294571/my_assignment/rtl +incdir+/home/s294571/my_assignment/vendor/lowrisc_ip/ip/prim/rtl +incdir+/home/s294571/my_assignment/vendor/lowrisc_ip/ip/prim_generic/rtl +incdir+/home/s294571/my_assignment/vendor/lowrisc_ip/dv/sv/dv_utils/ +incdir+/home/s294571/my_assignment/dv/uvm/core_ibex/common/prim +define+QUESTASIM +define+RVFI -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z13 tCvgOpt 0
+vibex_compressed_decoder
+R1
+R2
+R3
+!i10b 1
+!s100 mUG6THlP0Wnn]3SA^a;i:1
+ImQZ52;`eOCzG9QZg>E7i_0
+R4
+!s105 ibex_compressed_decoder_sv_unit
+S1
+R0
+R5
+8/home/s294571/my_assignment/rtl/ibex_compressed_decoder.sv
+F/home/s294571/my_assignment/rtl/ibex_compressed_decoder.sv
+Z14 L0 16
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+vibex_controller
+R1
+R2
+R3
+!i10b 1
+!s100 >_M17ZE13>NlQA0V?Rgm^0
+IANYPA6;gC5n;;5^LZ[ie22
+R4
+!s105 ibex_controller_sv_unit
+S1
+R0
+R5
+8/home/s294571/my_assignment/rtl/ibex_controller.sv
+F/home/s294571/my_assignment/rtl/ibex_controller.sv
+Z15 L0 13
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+vibex_core
+R1
+R2
+R3
+!i10b 1
+!s100 RAN>f;974:g:<iA_O2]2[3
+I_e7VBbBLU?cE32<YbcTW@2
+R4
+!s105 ibex_core_sv_unit
+S1
+R0
+R5
+8/home/s294571/my_assignment/rtl/ibex_core.sv
+F/home/s294571/my_assignment/rtl/ibex_core.sv
+R14
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+vibex_counter
+R1
+R3
+!i10b 1
+!s100 g6P?EBQS;=ncQb<YzJOYY2
+I1mo[eN?iO;2ZGLDYn3Zd72
+R4
+!s105 ibex_counter_sv_unit
+S1
+R0
+R5
+8/home/s294571/my_assignment/rtl/ibex_counter.sv
+F/home/s294571/my_assignment/rtl/ibex_counter.sv
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+vibex_cs_registers
+R1
+R2
+R3
+!i10b 1
+!s100 PkP>RF>n;:be0ZQFL7d?V2
+IKM2hC5XdOM3[6oZ;olHCG2
+R4
+!s105 ibex_cs_registers_sv_unit
+S1
+R0
+R5
+8/home/s294571/my_assignment/rtl/ibex_cs_registers.sv
+F/home/s294571/my_assignment/rtl/ibex_cs_registers.sv
+F/home/s294571/my_assignment/rtl/ibex_pmp_reset_default.svh
+Z16 L0 12
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+vibex_csr
+R1
+R3
+!i10b 1
+!s100 WdRgBlSS]LkWUdCZckRXm2
+I=f6MgBb5`QIb2;^^GPeg`2
+R4
+!s105 ibex_csr_sv_unit
+S1
+R0
+R5
+8/home/s294571/my_assignment/rtl/ibex_csr.sv
+F/home/s294571/my_assignment/rtl/ibex_csr.sv
+Z17 L0 11
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+vibex_decoder
+R1
+R2
+R3
+!i10b 1
+!s100 HQVb@E[ol4nOSBZ0o0b8`1
+II0d>?_IThMYnFI3mcg8Gh3
+R4
+!s105 ibex_decoder_sv_unit
+S1
+R0
+R5
+8/home/s294571/my_assignment/rtl/ibex_decoder.sv
+F/home/s294571/my_assignment/rtl/ibex_decoder.sv
+R14
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+vibex_ex_block
+R1
+R2
+R3
+!i10b 1
+!s100 `[Q7;i]YVK^>lWTo1kVJ30
+IG]M76i20gU`GZ49mo?mfX3
+R4
+!s105 ibex_ex_block_sv_unit
+S1
+R0
+R5
+8/home/s294571/my_assignment/rtl/ibex_ex_block.sv
+F/home/s294571/my_assignment/rtl/ibex_ex_block.sv
+R17
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+vibex_fetch_fifo
+R1
+R3
+!i10b 1
+!s100 3m[VR]gEFGn]abHZZ:94W1
+I``0W=_I^nj1n^<@>idfhT0
+R4
+!s105 ibex_fetch_fifo_sv_unit
+S1
+R0
+R5
+8/home/s294571/my_assignment/rtl/ibex_fetch_fifo.sv
+F/home/s294571/my_assignment/rtl/ibex_fetch_fifo.sv
+Z18 L0 15
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+vibex_id_stage
+R1
+R2
+R3
+!i10b 1
+!s100 aZ=V9DAL>`6[d7e7@:USg2
+IM03<4<o9R@@Lo[KNSF5WC1
+R4
+!s105 ibex_id_stage_sv_unit
+S1
+R0
+R5
+8/home/s294571/my_assignment/rtl/ibex_id_stage.sv
+F/home/s294571/my_assignment/rtl/ibex_id_stage.sv
+Z19 L0 20
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+vibex_if_stage
+R1
+R2
+R3
+!i10b 1
+!s100 H2_7a8n7Q[Glz7mc3iSnL1
+IV[nO=A89aCM5GENmz2eN01
+R4
+!s105 ibex_if_stage_sv_unit
+S1
+R0
+w1670330560
+8/home/s294571/my_assignment/rtl/ibex_if_stage.sv
+F/home/s294571/my_assignment/rtl/ibex_if_stage.sv
+L0 19
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+vibex_load_store_unit
+R1
+R3
+!i10b 1
+!s100 N^JB>dIH7<LI6AA3`80V]0
+I`NLHzD=ajOIPLMazdVR>E3
+R4
+!s105 ibex_load_store_unit_sv_unit
+S1
+R0
+R5
+8/home/s294571/my_assignment/rtl/ibex_load_store_unit.sv
+F/home/s294571/my_assignment/rtl/ibex_load_store_unit.sv
+Z20 L0 17
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+vibex_multdiv_fast
+R1
+R2
+R3
+!i10b 1
+!s100 oj7fiZkUB[cf[ljP4Ib972
+IAR:Af]BBdCbk7JGYIaY9@3
+R4
+!s105 ibex_multdiv_fast_sv_unit
+S1
+R0
+R5
+8/home/s294571/my_assignment/rtl/ibex_multdiv_fast.sv
+F/home/s294571/my_assignment/rtl/ibex_multdiv_fast.sv
+R20
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+vibex_multdiv_slow
+R1
+R2
+R3
+!i10b 1
+!s100 zbzG18S?jECmh;aKSSaQ>1
+I>g64em?Tc?fGTZi6Z^`1Z3
+R4
+!s105 ibex_multdiv_slow_sv_unit
+S1
+R0
+R5
+8/home/s294571/my_assignment/rtl/ibex_multdiv_slow.sv
+F/home/s294571/my_assignment/rtl/ibex_multdiv_slow.sv
+L0 14
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+Xibex_pkg
+R1
+R3
+!i10b 1
+!s100 0IhnJ47_k8TebLGBLRf_>0
+IGZRiZRln1HVC3_cbQ^eK`2
+VGZRiZRln1HVC3_cbQ^eK`2
+S1
+R0
+R5
+8/home/s294571/my_assignment/rtl/ibex_pkg.sv
+F/home/s294571/my_assignment/rtl/ibex_pkg.sv
+L0 9
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+vibex_prefetch_buffer
+R1
+R3
+!i10b 1
+!s100 kn18O_V>25^VoOJK]Z9?g2
+I4R_?Qk[P`aLdP_5QU_WF33
+R4
+!s105 ibex_prefetch_buffer_sv_unit
+S1
+R0
+R5
+8/home/s294571/my_assignment/rtl/ibex_prefetch_buffer.sv
+F/home/s294571/my_assignment/rtl/ibex_prefetch_buffer.sv
+R16
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+vibex_register_file_ff
+R1
+R3
+!i10b 1
+!s100 7S57l5=hXZXNjhf]6TVmo3
+IYM48?WHc2N@aghJzQOMZF1
+R4
+!s105 ibex_register_file_ff_sv_unit
+S1
+R0
+R5
+8/home/s294571/my_assignment/rtl/ibex_register_file_ff.sv
+F/home/s294571/my_assignment/rtl/ibex_register_file_ff.sv
+R15
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+vibex_top
+R1
+R2
+DXx4 work 15 prim_ram_1p_pkg 0 22 U2D:m:V]mBgdVQg[Qk<4h0
+DXx4 work 15 prim_secded_pkg 0 22 L`T@ZF<?MMlZ8TROKW7EC3
+R3
+!i10b 1
+!s100 89@Z79WAB>f_QJ6WCi5DP1
+I9_?Z8z?De0>VT:kaKC@cn1
+R4
+Z21 !s105 ibex_top_sv_unit
+S1
+R0
+w1670331172
+8/home/s294571/my_assignment/rtl/ibex_top.sv
+F/home/s294571/my_assignment/rtl/ibex_top.sv
+L0 49
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+vibex_tracer
+R1
+DXx4 work 19 ibex_tracer_sv_unit 0 22 H`Eg8jZmZ8oCQgk4j2T4T2
+R2
+DXx4 work 15 ibex_tracer_pkg 0 22 ]g_;L@mN;hf7GcUOfh0Ab2
+R4
+r1
+!s85 0
+31
+!i10b 1
+!s100 1igWe2IFOGjXbSG8>KXM:0
+I@D[m>ZFmoccemYTdA<BAm1
+!s105 ibex_tracer_sv_unit
+S1
+R0
+Z22 w1670617039
+Z23 8/home/s294571/my_assignment/rtl/ibex_tracer.sv
+Z24 F/home/s294571/my_assignment/rtl/ibex_tracer.sv
+L0 41
+R6
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+Xibex_tracer_pkg
+R1
+R2
+R3
+!i10b 1
+!s100 fKnkW9F^YN8kYn3]P1KMY2
+I]g_;L@mN;hf7GcUOfh0Ab2
+V]g_;L@mN;hf7GcUOfh0Ab2
+S1
+R0
+R5
+8/home/s294571/my_assignment/rtl/ibex_tracer_pkg.sv
+Z25 F/home/s294571/my_assignment/rtl/ibex_tracer_pkg.sv
+L0 6
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+Xibex_tracer_sv_unit
+R1
+VH`Eg8jZmZ8oCQgk4j2T4T2
+r1
+!s85 0
+31
+!i10b 1
+!s100 Z?EFHOcHQa8BkHYRkN9ab0
+IH`Eg8jZmZ8oCQgk4j2T4T2
+!i103 1
+S1
+R0
+R22
+R23
+R24
+R25
+Z26 F/home/s294571/my_assignment/tb/utils.sv
+Z27 L0 25
+R6
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+vibex_wb_stage
+R1
+R2
+R3
+!i10b 1
+!s100 H:Yk]9=UnRVbm;Y^V<OlH2
+IHg^V9;l=V=^dg3G:ALPV;1
+R4
+!s105 ibex_wb_stage_sv_unit
+S1
+R0
+R5
+8/home/s294571/my_assignment/rtl/ibex_wb_stage.sv
+F/home/s294571/my_assignment/rtl/ibex_wb_stage.sv
+R20
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+vprim_buf
+R1
+R3
+!i10b 1
+!s100 GPU1b?LlFGed@G[5GTA4M1
+IS182=][82AZEPhZ7h4VQI0
+R4
+R21
+S1
+R0
+w1670331453
+8/home/s294571/my_assignment/dv/uvm/core_ibex/common/prim/prim_buf.sv
+F/home/s294571/my_assignment/dv/uvm/core_ibex/common/prim/prim_buf.sv
+R18
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+vprim_clock_gating
+R1
+DXx4 work 8 prim_pkg 0 22 11QNReLEf[?3NFR9E]R351
+R3
+!i10b 1
+!s100 6[ISKSz>[k9IFB=914F;L0
+I=G316YM@9hz^Yc7J>4dSd3
+R4
+R21
+S1
+R0
+w1670331427
+8/home/s294571/my_assignment/dv/uvm/core_ibex/common/prim/prim_clock_gating.sv
+F/home/s294571/my_assignment/dv/uvm/core_ibex/common/prim/prim_clock_gating.sv
+R19
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+vprim_generic_buf
+R1
+R3
+!i10b 1
+!s100 2[DZ_M0kk07gdn8TdTV<?2
+I=B^Hbd?R@QVONY[XLOD@62
+R4
+R21
+S1
+R0
+R5
+8/home/s294571/my_assignment/vendor/lowrisc_ip/ip/prim_generic/rtl/prim_generic_buf.sv
+F/home/s294571/my_assignment/vendor/lowrisc_ip/ip/prim_generic/rtl/prim_generic_buf.sv
+L0 7
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+vprim_generic_clock_gating
+R1
+R3
+!i10b 1
+!s100 eV_DDCJZZ9iVXDS;9YO0h1
+IKDiV8dBo2zGEZ0R3@mohb3
+R4
+R21
+S1
+R0
+R5
+8/home/s294571/my_assignment/vendor/lowrisc_ip/ip/prim_generic/rtl/prim_generic_clock_gating.sv
+F/home/s294571/my_assignment/vendor/lowrisc_ip/ip/prim_generic/rtl/prim_generic_clock_gating.sv
+L0 10
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+Xprim_pkg
+R1
+R3
+!i10b 1
+!s100 D?6Lo`oOQ]:c>?^9Vi3LZ2
+I11QNReLEf[?3NFR9E]R351
+V11QNReLEf[?3NFR9E]R351
+S1
+R0
+R5
+8/home/s294571/my_assignment/dv/uvm/core_ibex/common/prim/prim_pkg.sv
+F/home/s294571/my_assignment/dv/uvm/core_ibex/common/prim/prim_pkg.sv
+R17
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+Xprim_ram_1p_pkg
+R1
+R3
+!i10b 1
+!s100 M][AO0UGV]lH`aeYGBh:60
+IU2D:m:V]mBgdVQg[Qk<4h0
+VU2D:m:V]mBgdVQg[Qk<4h0
+S1
+R0
+R5
+8/home/s294571/my_assignment/vendor/lowrisc_ip/ip/prim/rtl/prim_ram_1p_pkg.sv
+F/home/s294571/my_assignment/vendor/lowrisc_ip/ip/prim/rtl/prim_ram_1p_pkg.sv
+L0 6
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+Xprim_secded_pkg
+R1
+R3
+!i10b 1
+!s100 1IPS]dN4CDgFfJ1nDR9NP0
+IL`T@ZF<?MMlZ8TROKW7EC3
+VL`T@ZF<?MMlZ8TROKW7EC3
+S1
+R0
+R5
+8/home/s294571/my_assignment/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_pkg.sv
+F/home/s294571/my_assignment/vendor/lowrisc_ip/ip/prim/rtl/prim_secded_pkg.sv
+L0 8
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+vtb_ram
+R1
+DXx4 work 14 tb_ram_sv_unit 0 22 iPPdOIFL;iSai]L>[8FTD2
+R4
+r1
+!s85 0
+31
+!i10b 1
+!s100 Efa;XFom7DD`Ea9;zX;=a2
+I=Z7HkGL3hGWilKGT]llcA2
+!s105 tb_ram_sv_unit
+S1
+R0
+Z28 w1670712921
+Z29 8/home/s294571/my_assignment/tb/tb_ram.sv
+Z30 F/home/s294571/my_assignment/tb/tb_ram.sv
+L0 6
+R6
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+Xtb_ram_sv_unit
+R1
+ViPPdOIFL;iSai]L>[8FTD2
+r1
+!s85 0
+31
+!i10b 1
+!s100 ^oda5m9zaMIh6Ma6l2m682
+IiPPdOIFL;iSai]L>[8FTD2
+!i103 1
+S1
+R0
+R28
+R29
+R30
+R26
+R27
+R6
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+Ttb_rtl_top_vopt
+R3
+VTZC7^gJcF6SLZKC`ojiza0
+04 6 4 work tb_top fast 0
+o-work work_rtl -debugdb -fsmdebug +acc=rnbpc
+R13
+ntb_rtl_top_vopt
+OL;O;10.5c_4;63
+vtb_top
+R1
+DXx4 work 14 tb_top_sv_unit 0 22 njGmOEo>P`k<E<=DM]2`E2
+R4
+r1
+!s85 0
+31
+!i10b 1
+!s100 QCNTg:PPTz0i[=dh50]dd2
+IXh;bMY:NHIdzcaX6mf]HA0
+!s105 tb_top_sv_unit
+S1
+R0
+Z31 w1670712500
+Z32 8/home/s294571/my_assignment/tb/tb_top.sv
+Z33 F/home/s294571/my_assignment/tb/tb_top.sv
+R15
+R6
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13
+Xtb_top_sv_unit
+R1
+VnjGmOEo>P`k<E<=DM]2`E2
+r1
+!s85 0
+31
+!i10b 1
+!s100 7AA3QfPjQ6470`zJC;lfE3
+InjGmOEo>P`k<E<=DM]2`E2
+!i103 1
+S1
+R0
+R31
+R32
+R33
+R26
+R27
+R6
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+R13

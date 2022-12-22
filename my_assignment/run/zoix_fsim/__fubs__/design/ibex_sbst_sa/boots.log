@@ -1,0 +1,77 @@
+
+                                   Z01X (TM)
+
+               Version R-2020.12-SP2 for linux64 - May 19, 2021 
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+Command: boots -record -dir ./ -fub design -test ibex_sbst_sa -fdef sim.fdef -fntn 65537 -l __fubs__/design/ibex_sbst_sa/boots.log __fubs__/design/ibex_sbst_sa/ibex_sbst_sa.fdef 
+
+Fault Status Mapping:
+ NA NA Not Attempted
+ ND ND Not Detected
+ DD DD Dropped Detected
+ DT DT Detected
+ DE DE Detected Error
+ DF DF Detected $finish/$stop
+ DO DO Detected Observable
+ PD PD Dropped Potential
+ PT PT Potential
+ PO PO Potential Observable
+ OZ OZ Oscillatory
+ OA OA Active
+ HA HA Hyperactive
+ HM HM Hypermemory
+ HT HT Hypertrophic
+ -- -- Collapsed
+ IA IA Illegal Access
+ IP IP Illegal User PLI
+ IH IH Illegal Hier Ref
+ IF IF Illegal File I/O
+ IX IX Impossible x-state
+ NC NC Not Controlled
+ NO NO Not Observed
+ NS NS Not Strobed
+ NI NI Not Injected
+ NT NT Not Tested
+ UU UU Untestable Unused
+ UT UT Untestable Tied
+ UB UB Untestable Blocked
+ UR UR Untestable Redundant
+ UI UI Untestable Import
+ UO UO Untestable Unobservable
+ EN EN Excluded
+
+Test Results:
+                               Prime        Total
+ Total Faults:                  125196       125196
+ DT                                  0            0
+ DD                              21959        21959
+ PT                                  0            0
+ PD                               4334         4334
+ NS                               6850         6850
+ NO                              60399        60399
+ NC                              14780        14780
+ CVG,Test Coverage, 19.27%, 19.27%
+ CVG,Fault Coverage, 19.27%, 19.27%
+
+FuB Results:
+                               Prime        Total
+ Total Faults:                  125196       125196
+ DT                                  0            0
+ DD                              21959        21959
+ PT                                  0            0
+ PD                               4334         4334
+ NS                               6850         6850
+ NO                              60399        60399
+ NC                              14780        14780
+ CVG,Test Coverage, 19.27%, 19.27%
+ CVG,Fault Coverage, 19.27%, 19.27%
+
+Info:    CPU Time: 3.5s ; Elapsed Time: 3.5s ; Data Size: 136.2MB 

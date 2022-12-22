@@ -1,0 +1,60 @@
+# vsim -c -quiet -suppress 3839 "+verbose" "+memory_debug" "+firmware=/home/s294571/my_assignment/sbst/sbst.hex" "+vcd=/home/s294571/my_assignment/run/gate_tb_top_vcd.vcd" tb_gate_top_vopt -do "run -all" 
+# Start time: 11:01:03 on Dec 22,2022
+# //  Questa Sim-64
+# //  Version 10.5c_4 linux_x86_64 Nov 30 2016
+# //
+# //  Copyright 1991-2016 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# run -all
+# [ [0;36m INFO [0m ]: " Activating reset for 100 clock cycles. " (@ 0ns)
+# [ [0;36m INFO [0m ]: " Producing VCD file /home/s294571/my_assignment/run/gate_tb_top_vcd.vcd. " (@ 0ns)
+# [ [0;36m INFO [0m ]: " Loading SBST firmware to RAM '/home/s294571/my_assignment/sbst/sbst.hex' " (@ 0ns)
+# ** Warning: (vsim-PLI-3412) Memory address read on line 10 of file "/home/s294571/my_assignment/sbst/sbst.hex" is out of bounds specified for readmem command.  (Current address [196736], address range [0:16383])    : /home/s294571/my_assignment/tb/tb_top.sv(84)
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top
+# [ [0;36m INFO [0m ]: " Deactivating reset. " (@ 1000ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0x80, data=0x0 " (@ 1030ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0x84, data=0x41014081 " (@ 1040ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0x88, data=0x42014181 " (@ 1050ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0x8c, data=0x43014281 " (@ 1060ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0x90, data=0x44014381 " (@ 1080ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0x94, data=0x45014481 " (@ 1100ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0x98, data=0x46014581 " (@ 1120ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0x9c, data=0x47014681 " (@ 1140ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0xa0, data=0x48014781 " (@ 1160ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0xa4, data=0x49014881 " (@ 1180ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0xa8, data=0x4a014981 " (@ 1200ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0xac, data=0x4b014a81 " (@ 1220ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0xb0, data=0x4c014b81 " (@ 1240ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0xb4, data=0x4d014c81 " (@ 1260ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0xb8, data=0x4e014d81 " (@ 1280ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0xbc, data=0x4f014e81 " (@ 1300ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0xc0, data=0x1174f81 " (@ 1320ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0xc4, data=0x1130003 " (@ 1340ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0xc8, data=0x2973d21 " (@ 1360ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0xcc, data=0x82930003 " (@ 1370ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0xd0, data=0x8e33fba2 " (@ 1380ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0xd4, data=0xa02303ee " (@ 1390ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0xd8, data=0x4e8501c2 " (@ 1400ns)
+# [ [1;33m DEBUG[0m ]: " [DRAM] Store, addr=0x80, data=0x0, bytemask=0b1111 " (@ 1410ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0xdc, data=0x3eece33 " (@ 1410ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0xe0, data=0x1c2a023 " (@ 1420ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0xe4, data=0xff2337 " (@ 1430ns)
+# [ [1;33m DEBUG[0m ]: " [DRAM] Store, addr=0x80, data=0xffffffff, bytemask=0b1111 " (@ 1450ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0xe8, data=0x32023 " (@ 1450ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0xec, data=0x10001 " (@ 1460ns)
+# [ [1;33m DEBUG[0m ]: " [DRAM] Store, addr=0x2000, data=0x0, bytemask=0b1111 " (@ 1470ns)
+# [ [1;33m DEBUG[0m ]: " [IRAM] Fetch, addr=0xf0, data=0xface0001 " (@ 1470ns)
+# [[0;32m SUCCESS[0m]: " Exit Success! " (@ 1480ns)
+# ** Note: $finish    : /home/s294571/my_assignment/tb/tb_top.sv(118)
+#    Time: 1480 ns  Iteration: 1  Instance: /tb_top
+# End time: 11:01:04 on Dec 22,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 1

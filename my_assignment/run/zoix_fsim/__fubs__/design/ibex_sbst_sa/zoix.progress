@@ -1,0 +1,9 @@
+(11:02:28) Host: po Pass: 22 Simulation Time: 1480000
+F:159 ND:59 DD:79 PD:21 N:0
+Last Strobe Time: 1480000
+Last Compare Time: 0
+RunStats: CPU Time: 1.3s ; Elapsed Time: 1.4s ; Data Size: 204.2MB 
+Invalid Iddq Count: 0
+Simulation ran to completion
+(11:02:28) Host: po Pass: 22 Pass Completed
+No more passes needed

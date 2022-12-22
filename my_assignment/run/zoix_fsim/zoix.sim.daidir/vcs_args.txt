@@ -1,0 +1,38 @@
+/opt/ZOIX/R-2020.12-SP2/vcs-mx/linux64/bin/vcs1
+-Mcc=gcc
+-Mcplusplus=g++
+-Masflags=
+-Mcfl= -pipe -fPIC -O -I/opt/ZOIX/R-2020.12-SP2/vcs-mx/include 
+-Mxllcflags=
+-Mxcflags= -pipe -fPIC -I/opt/ZOIX/R-2020.12-SP2/vcs-mx/include
+-Mldflags= -rdynamic 
+-Mout=zoix.sim
+-Mamsrun=
+-Mvcsaceobjs=
+-Mobjects= /opt/ZOIX/R-2020.12-SP2/vcs-mx/linux64/lib/libvirsim.so /opt/ZOIX/R-2020.12-SP2/vcs-mx/linux64/lib/liberrorinf.so /opt/ZOIX/R-2020.12-SP2/vcs-mx/linux64/lib/libsnpsmalloc.so /opt/ZOIX/R-2020.12-SP2/vcs-mx/linux64/lib/libvfs.so 
+-Mexternalobj=
+-Msaverestoreobj=/opt/ZOIX/R-2020.12-SP2/vcs-mx/linux64/lib/vcs_save_restore_new.o
+-Mcrt0=
+-Mcrtn=
+-Mcsrc=
+-Mdir=sim.csrc
+-Msyslibs=-ldl 
+-l
+z_compile.log
+-zoix=DLL=/opt/ZOIX/R-2020.12-SP2/lib/x86Linux64/libzc.so
+-full64
+-covg_disable_cg
++define+functional
+-top
+ibex_top+strobe
+-zoix=portfaults
+-Xzoixdbg=0x200
+-o
+zoix.sim
+-zoix=arglistfile+./sim.working/zoixarglist.txt
+-picarchive
+-sverilog
+-gen_obj
+-f
+sim.working/0.f
+/home/s294571/my_assignment/zoix/strobe.sv

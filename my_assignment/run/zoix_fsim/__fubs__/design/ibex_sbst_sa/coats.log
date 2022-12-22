@@ -1,0 +1,66 @@
+
+                                   Z01X (TM)
+
+               Version R-2020.12-SP2 for linux64 - May 19, 2021 
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+Command: coats -dir ./ -fub design -test ibex_sbst_sa -seltyp observe +job_id+74cf72d036d8e22d -fstrobe __tests__/ibex_sbst_sa/__fstrobes__ -testid 65537 -l __fubs__/design/ibex_sbst_sa/coats.log 
+
+Info:    Loading design       (11:01:31)
+Info:    Generating toggle map file.
+Info:    Reading toggle counts.
+Info:    Added backpointers.
+Info:    Relaxing toggle counts for multi-source wires.
+Info:    Relaxation iterations:                         1
+Info:    Total toggled faults:                     117278
+Info:    Loaded togmap file: ./__tests__/ibex_sbst_sa/ibex_sbst_sa.tmap
+Info:    Loading FuB faults marked previously.
+Info:    Calculating device observability.
+Primary outputs:                  276
+Info:    Marking Impossibles  (11:01:31)
+Info:    Collapsing           (11:01:31)
+Info:    Backtracing observable locations (11:01:31)
+Info:    Observability Queue Highwater mark: 4497
+Info:    Unobservable Devices:
+Info:          1550 Primitives
+Info:            16 Continuous Assigns
+Info:             8 Behavioral Modules
+
+Fault based observability metrics:
+  Fault selection method:             observe
+  Size of fault universe:              125196
+  Total untested faults:               110416
+  Total observable faults:              43167
+  Total impossible faults:                  0
+  Total toggled faults:                102498
+  Total NC faults:                      14780
+  Total NO faults:                      60399
+  Total NS faults:                       6850
+  Total NI faults:                          0
+  Total NT faults:                          0
+  FuB fault count:                      43167
+  FuB remaining faults:                125196
+  FuB observable faults:                43167
+  FuB impossible Faults:                    0
+  FuB untested faults:                  43167
+  FuB faults toggled:                   43167
+  Selected fault count:                 43167
+  Selected fault avg tenacity:         31.874
+  Selected fault quality:             356.152
+  Selected fault avg test count:        0.000
+  Untested faults / Selected:           1.000
+  Selected faults / FuB faults:         1.000
+  Selected untested faults:             43167
+  Selected pot-det faults:                  0
+  Faults to be simulated:               43167
+Info:    
+Generating test resist map ./__fubs__/design/ibex_sbst_sa/ibex_sbst_sa.flst.
+Info:    At 12/22/22 11:01:32 task complete.
+Info:    CPU Time: 1.5s ; Elapsed Time: 1.5s ; Data Size: 149.7MB 

@@ -1,0 +1,32 @@
+
+                                   Z01X (TM)
+
+               Version R-2020.12-SP2 for linux64 - May 19, 2021 
+
+                    Copyright (c) 1999 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+Z01X (TM) Version: R-2020.12-SP2 (64-bit, May 19 2021) for Linux 64-bit
+
+Command: zoix.sim -toggle __tests__/ibex_sbst_sa/ibex_sbst_sa.vtog -fstrobe __tests__/ibex_sbst_sa/__fstrobes__ -l __tests__/ibex_sbst_sa/zoix_rt.log +vcd+file+__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd +progress -testdir __tests__/ibex_sbst_sa/ +vcd+dut+ibex_top+tb_top.dut +TESTNAME=riscv_core -testname ibex_sbst_sa +job_id+d45f02b09608a28d 
+
+Info:    Simulation Started Thu Dec 22 11:01:30 2022
+Info:    Logic Simulation  Host po
+
+Info:    Loading ...          (11:01:30)
+Info:    Initializing ...     (11:01:30)
+Warning! VCD file "__tests__/ibex_sbst_sa/gate_tb_top_vcd.vcd" contains
+signals that are below the vcd stimulus dut level. These signals will be
+ignored.
+Info:    Simulating ...       (11:01:30)
+Info:    5000                 (11:01:30)
+
+Info:    Last simulation time was at 1480000 ps
+Info:    Logic Events: 69540
+Info:    0 Errors 1 Warnings
+Info:    Writing toggle data...
+Info:    CPU Time: 0.7s ; Elapsed Time: 0.7s ; Data Size: 132.8MB 
+Info:    Simulation Completed Thu Dec 22 11:01:31 2022

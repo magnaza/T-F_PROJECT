@@ -1,0 +1,29 @@
+#                                Prime                  Total
+# Test: ibex_sbst_sa
+# Total Faults:                 125196                 125196
+# Detected Faults:                   0     0.00%            0     0.00%
+# Dropped Detected Faults:       21959    17.54%        21959    17.54%
+# Dropped Potential Faults:       4334     3.46%         4334     3.46%
+# Potential Faults:                  0     0.00%            0     0.00%
+# Not Detected Faults:           16874    13.48%        16874    13.48%
+# Not Strobed:                    6850     5.47%         6850     5.47%
+# Not Observed:                  60399    48.24%        60399    48.24%
+# Not Controlled:                14780    11.81%        14780    11.81%
+# Simulation Times:          
+#   Toggle:                   00:00:01
+#   Fault Cumulative:         00:00:43
+#   Fault Wall Clock:         00:01:02
+#
+# Cumulative Test Results
+# Total Faults:                 125196                 125196
+# Detected Faults:                   0     0.00%            0     0.00%
+# Dropped Detected Faults:       21959    17.54%        21959    17.54%
+# Dropped Potential Faults:       4334     3.46%         4334     3.46%
+# Potential Faults:                  0     0.00%            0     0.00%
+# Not Detected Faults:           16874    13.48%        16874    13.48%
+# Not Strobed:                    6850     5.47%         6850     5.47%
+# Not Observed:                  60399    48.24%        60399    48.24%
+# Not Controlled:                14780    11.81%        14780    11.81%
+#
+# Test Coverage:                          19.27%                 19.27%
+#
