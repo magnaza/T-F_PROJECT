@@ -58,13 +58,23 @@ _start:
  ****** \\\\////************/
   
     # YOUR ASSEMBLY CODE #
+
+fede_part:    
+    la  t0, test_result
+    li  t2, 0xFFFFFFFF
+    mul t1, t2, t3
+    div t1, t2, t3
+    li  t3, 0x1
+    mul t1, t2, t3
+    div t1, t2, t3
+    li  t2, 0x0
+    li  t3, 0x0
     
-    la  x5, test_result
-    mul x28, x29, x30
-    sw  x28, 0(x5)
-    li  x29, 0x1
-    div x28, x29, x30
-    sw  x28, 0(x5)
+davideB_part:
+
+
+davideF_part:
+
 
 /****** ////\\\\*******              
  *                 _  *
@@ -77,6 +87,7 @@ _start:
              
     EXIT t1
 
+/* TEST_RODATA where to retrieve data if necessary */
 .section ".TEST_RODATA", "a" // Emit the section .TEST_RODATA and make it current. 
 
 my_fancy_patterns:
@@ -85,6 +96,8 @@ my_fancy_patterns:
 	.long 0x01020304
 	.long 0xab34d314
 
+
+/* TEST_DATA where to store data if necessary */
 .section ".TEST_DATA", "aw"
 .global test_result
 
