@@ -84,7 +84,7 @@ fede_part:
     li      t3, 0x1
     mul     t1, t2, t3
     mulh    t1, t2, t3
-    /*  THEY ARE NOT RECOGNIZE BUT THE COMPILER(again)
+    /*  THEY ARE NOT RECOGNIZE BY THE COMPILER???
     mulsu   t1, t2, t3
     mulu    t1, t2 ,t3
     */
@@ -99,7 +99,7 @@ fede_part:
     li      t3, 0xFFFFFFFF
     mul     t1, t2, t3
     mulh    t1, t2, t3
-    /* THEY ARE NOT RECOGNIZE BUT THE COMPILER???
+    /* THEY ARE NOT RECOGNIZE BY THE COMPILER???(again)
     mulsu   t1, t2, t3
     mulu    t1, t2 ,t3
     */
@@ -112,9 +112,13 @@ fede_part:
     
     div     t1, t3, t2
     divu    t1, t3, t2
+
+    # TEST 5: REMINDER -> T2 = 0x80000000 T3 = 0xFFFFFFFF T1 = 0x01111111
+
+    li      t2, 0x80000000
     rem     t1, t3, t2
     remu    t1, t3, t2
-
+    
     # RESTORE INITIAL VALUES #
 
     li      t2, 0x0
