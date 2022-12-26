@@ -128,7 +128,57 @@ davideB_part:
 
 
 davideF_part:
+/* INSTRUCTION RV32I */
+/* R TYPE */
+/*Arithmetic and Logic Operations*/
+    li      t2, 0xFFFFFFFF
+    li      t4, 0x00000002
+    add     t1, t2, t3
+    sub     t1, t2, t3
+    xor     t1, t2, t3
+    or      t1, t2, t3
+    and     t1, t2, t3
 
+/*Shift*/
+    sll     t1, t2, t4
+    srl     t1, t2, t4
+    sra     t1, t2, t4
+
+/*Set-Less-Then*/ 
+/*False*/   
+    slt     t1, t2, t3
+    sltu    t1, t2, t3
+/*True*/
+    slt     t1, t3, t2
+    sltu    t1, t3, t2
+
+/* I TYPE */
+/*Arithmetic and Logic Operations*/
+    addi     t1, t2, 0x4
+    xori     t1, t2, 0xAAAAAAAA
+    ori      t1, t2, 0xAAAAAAAA
+    andi     t1, t2, 0xAAAAAAAA
+
+/*Shift*/
+    slli    t1, t2, 0x4
+    srli    t1, t2, 0x4
+    srai    t1, t2, 0x4
+
+/*Set-Less-Then*/ 
+/*False*/   
+    slti    t1, t2, 0x1
+    sltui   t1, t2, 0x1
+/*True*/
+    slti    t1, t3, 0x1
+    sltui   t1, t3, 0x1
+
+/*Load */
+	la		t1, my_patterns
+	lb		t2,	0*4(t1)  	
+	lh		t2,	1*4(t1)
+	lw		t2, 2*4(t1)
+	lbu	    t2,	3*4(t1)  	
+	lhu 	t2,	4*4(t1)
 
 /****** ////\\\\*******              
  *                 _  *
@@ -144,12 +194,13 @@ davideF_part:
 /* TEST_RODATA where to retrieve data if necessary */
 .section ".TEST_RODATA", "a" // Emit the section .TEST_RODATA and make it current. 
 
-my_fancy_patterns:
+my_patterns:
 	
 	.long 0xdeadface
 	.long 0x01020304
 	.long 0xab34d314
-
+    .long 0x8
+    .long 0x9
 
 /* TEST_DATA where to store data if necessary */
 .section ".TEST_DATA", "aw"
