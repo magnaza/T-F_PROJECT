@@ -62,7 +62,7 @@ _start:
 fede_part:    
     la      t0, test_result
     
-
+# MUL - DIV
     # TEST 1 -> T2 = 0xFFFFFFFF T3 = 0x0 T1 = 0 #
     
     li      t2, 0xFFFFFFFF
@@ -121,9 +121,60 @@ fede_part:
     
     # RESTORE INITIAL VALUES #
 
+    li      t1, 0x0
+    li      t1, 0x0
     li      t2, 0x0
     li      t3, 0x0
     
+# C. INSTRUCTIONS
+
+    la      t3, my_patterns
+    la      t4, test_result
+    c.lwsp  t1, 0(sp)
+    c.swsp  t1, 0(sp)
+    la      x9, test_result
+    la      x8, my_patterns
+    c.lw    x10, 2*4(x8)
+    c.sw    x10, 2*4(x9)
+    c.j     jump1
+jump1:
+    c.jal   jump2
+jump2:
+    la      t5, jump3
+    c.jr    t5
+jump3:
+    la      t5, jump4
+    c.jalr  t5
+jump4:      
+
+    /*
+    IMPOSSSIBLE INSTRUCTIONS
+    c.beqz
+    c.bnez
+    c.addi16sp
+    c.addi4spn   
+    */
+
+    c.li    t1, 0x0 
+    c.lui   t2, 0xF
+    c.addi  t1, 0x4
+
+    c.slli  t1, 0x4
+    c.srli  x8, 0x4
+    c.srai  x8, 0x4
+    c.andi  x8, 0xF
+    li      t2, 0xFFFFFFFF
+    li      t1, 0x00000000
+    c.mv    x8, t2
+    c.mv    x9, t1
+    c.add   t1, t2
+    c.and   x8, x9
+    c.or    x8, x9
+    c.xor   x8, x9
+    c.sub   x8, x9
+    c.nop
+
+
 davideB_part:
 
 
