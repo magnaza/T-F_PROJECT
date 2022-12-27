@@ -155,9 +155,9 @@ davideF_part:
 /* I TYPE */
 /*Arithmetic and Logic Operations*/
     addi     t1, t2, 0x4
-    xori     t1, t2, 0xAAAAAAAA
-    ori      t1, t2, 0xAAAAAAAA
-    andi     t1, t2, 0xAAAAAAAA
+    xori     t1, t2, 0xAA
+    ori      t1, t2, 0xAA
+    andi     t1, t2, 0xAA
 
 /*Shift*/
     slli    t1, t2, 0x4
@@ -165,12 +165,13 @@ davideF_part:
     srai    t1, t2, 0x4
 
 /*Set-Less-Then*/ 
+/*SLTUI NOT RECOGNIZED!!*/
 /*False*/   
     slti    t1, t2, 0x1
-    sltui   t1, t2, 0x1
+/*    sltui   t1, t2, 0x1 */
 /*True*/
     slti    t1, t3, 0x1
-    sltui   t1, t3, 0x1
+/*    sltui   t1, t3, 0x1 */
 
 /*Load */
 	la		t1, my_patterns
