@@ -4,4 +4,5 @@ FaultGenerate
     #NA [0,1] { PORT "ibex_top.u_ibex_core.ex_block_i.gen_multdiv_fast_multdiv_i.*" }
     #NA [0,1] { PORT "ibex_top.u_ibex_core.ex_block_i.alu_i.*" }
     #NA [0,1] { PORT "ibex_top.u_ibex_core.if_stage_i.compressed_decoder_i.*" }
+    #NA [0,1] { PORT "ibex_top.gen_regfile_ff_register_file_i.**" }
 }
