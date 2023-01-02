@@ -298,8 +298,12 @@ davideB_part:
 
 
 davideF_part:
-/* INSTRUCTION RV32I */
-/* R TYPE */
+
+###############################
+##### RV32I INSTRUCTIONS ######
+###############################
+
+## R TYPE ##
 /*Arithmetic and Logic Operations*/
     li      t2, 0xFFFFFFFF
     li      t4, 0x00000002
@@ -322,7 +326,7 @@ davideF_part:
     slt     t1, t3, t2
     sltu    t1, t3, t2
 
-/* I TYPE */
+## I TYPE ##
 /*Arithmetic and Logic Operations*/
     addi     t1, t2, 0x4
     xori     t1, t2, 0xAA
@@ -346,10 +350,55 @@ davideF_part:
 /*Load */
 	la		t1, my_patterns
 	lb		t2,	0*4(t1)  	
-	lh		t2,	1*4(t1)
-	lw		t2, 2*4(t1)
-	lbu	    t2,	3*4(t1)  	
-	lhu 	t2,	4*4(t1)
+	lh		t3,	1*4(t1)
+	lw		t4, 2*4(t1)
+	lbu	    t5,	3*4(t1)  	
+	lhu 	t5,	4*4(t1)
+
+## S TYPE ##
+/*Store*/
+    sb      t2, 0(t0)
+    sh      t3, 0(t0)
+    sw      t4, 0(t0)
+  
+## B TYPE ##
+/*Branch not taken*/
+    li      t2, 0x00000004
+    li      t4, 0x00000002
+    beq     t2, t4, branch_1
+    bne     t2, t2, branch_1
+    blt     t2, t4, branch_1
+    bge     t4, t2, branch_1
+    bltu    t2, t4, branch_1
+    bgeu    t4, t2, branch_1 
+/*Branch taken*/
+    beq     t2, t2, branch_1
+branch_1:
+    bne     t4, t2, branch_2
+branch_2:
+    blt     t4, t2, branch_3
+branch_3:
+    bge     t2, t4, branch_4
+branch_4:
+    bltu    t4, t2, branch_5
+branch_5:
+    bgeu    t2, t4, branch_6
+branch_6:
+
+## J TYPE ##
+/*Jump*/
+    li      t2, 0xFFFFFFFF
+    li      t4, 0x00000002
+    jal jump_1
+jump_1:
+    la      t1, jump_2
+    jalr    t1
+jump_2:
+
+## U TYPE ##
+    lui     t1, 0x00001111
+    auipc   t1, 0x00000010
+
 
 /****** ////\\\\*******              
  *                 _  *
