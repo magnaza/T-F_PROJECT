@@ -140,9 +140,81 @@ c.bnez      x8, end_RG
     li x30, 0xFFFFFFFF
 
     j store 
+     
+ end_RG:
+ 
+    la      x31, my_patterns
+    lw      x0, 5*4(x31)
+    lw      x1, 5*4(x31)
+    lw      x2, 5*4(x31)
+    lw      x3, 5*4(x31)
+    lw      x4, 5*4(x31)
+    lw      x5, 5*4(x31)
+    lw      x6, 5*4(x31)
+    lw      x7, 5*4(x31)
+    lw      x8, 5*4(x31)
+    lw      x9, 5*4(x31)
+    lw      x10, 5*4(x31)
+    lw      x11, 5*4(x31)
+    lw      x12, 5*4(x31)
+    lw      x13, 5*4(x31)
+    lw      x14, 5*4(x31)
+    lw      x15, 5*4(x31)
+    lw      x16, 5*4(x31)
+    lw      x17, 5*4(x31)
+    lw      x18, 5*4(x31)
+    lw      x19, 5*4(x31)
+    lw      x20, 5*4(x31)
+    lw      x21, 5*4(x31)
+    lw      x22, 5*4(x31)
+    lw      x23, 5*4(x31)
+    lw      x24, 5*4(x31)
+    lw      x25, 5*4(x31)
+    lw      x26, 5*4(x31)
+    lw      x27, 5*4(x31)
+    lw      x28, 5*4(x31)
+    lw      x29, 5*4(x31)
+    lw      x30, 5*4(x31)
+    la      x1, my_patterns
+    lw      x31, 5*4(x1)
+    
+    lw      x2, 6*4(x1)
+    lw      x3, 6*4(x1)
+    lw      x4, 6*4(x1)
+    lw      x5, 6*4(x1)
+    lw      x6, 6*4(x1)
 
-end_RG:
-
+# THE FOLLOWING INSTRUCTIONS GENERATE ERRORS, I DONT KNOW WHY #
+/*    
+    lw      x7, 6*4(x1)
+    lw      x8, 6*4(x1)    
+    lw      x9, 6*4(x1)
+    lw      x10, 6*4(x1)
+    lw      x11, 6*4(x1)
+    lw      x12, 6*4(x1)
+    lw      x13, 6*4(x1)
+    lw      x14, 6*4(x1)
+    lw      x15, 6*4(x1)
+    lw      x16, 6*4(x1)
+    lw      x17, 6*4(x1)
+    lw      x18, 6*4(x1)
+    lw      x19, 6*4(x1)
+    lw      x20, 6*4(x1)
+    lw      x21, 6*4(x1)
+    lw      x22, 6*4(x1)
+    lw      x23, 6*4(x1)
+    lw      x24, 6*4(x1)
+    lw      x25, 6*4(x1)
+    lw      x26, 6*4(x1)
+    lw      x27, 6*4(x1)
+    lw      x28, 6*4(x1)
+    lw      x29, 6*4(x1)
+    lw      x30, 6*4(x1)
+    lw      x31, 6*4(x1)
+ 
+    la      x31, my_patterns
+    lw      x1, 6*4(x31)
+*/
     li x1,  0x0
     li x3,  0x0
     li x4,  0x0
@@ -175,6 +247,38 @@ end_RG:
     li x31, 0x0 
     la sp, _sp
 
+
+/*
+################################
+####### DATARAM ################
+################################
+
+
+    la      t0, my_patterns
+    lw      t1, 7*4(t0)
+    li      t2, 0xFFFFFFFF   
+    li      t3, 0x00030200
+
+dram_all_1:
+    beq     t1, t3, end_dram_all1
+    sw      t2, 0*4(t1)
+    addi    t1, t1, 0x00000004
+    j       dram_all_1
+
+end_dram_all1:
+
+    lw      t1, 7*4(t0)
+    li      t2, 0x00000000
+
+dram_all_0:
+    beq     t1, t3, end_dram_all0
+    sw      t2, 0*4(t1)
+    addi    t1, t1, 0x00000004
+    j       dram_all_0
+
+end_dram_all0:
+
+*/
 
 ################################
 ####### MUL - DIV ##############
@@ -215,7 +319,7 @@ end_RG:
     rem     t1, t2, t3
     remu    t1, t2, t3
 
-    # TEST 4:EXCEPTION -> N/0 T2 = 0x0 T3 = 0xFFFFFFFF T1 = ?#
+    # TEST 4:EXCEPTION -> N/0 T2 = 0x0 T3 = 0xFFFFFFFF T1 = ? #
     
     div     t1, t3, t2
     divu    t1, t3, t2
@@ -226,10 +330,14 @@ end_RG:
     rem     t1, t3, t2
     remu    t1, t3, t2
   
-    # THEY ARE NOT RECOGNIZE BY THE COMPILER???
+    # THEY ARE NOT RECOGNIZE BY THE COMPILER??? update: NOW YES!
     
-    #mulsu   t1, t2, t3
-    #mulu    t1, t2 ,t3
+    li      t2, 0x0    
+    mulhsu  t1, t2, t3
+    mulhu   t1, t2 ,t3
+    li      t2, 0xFFFFFFFF
+    mulhsu  t1, t2, t3
+    mulhu   t1, t2 ,t3
     
   
     # RESTORE INITIAL VALUES #
@@ -421,6 +529,9 @@ my_patterns:
 	.long 0xab34d314
     .long 0x8
     .long 0x9
+    .long 0x00000000
+    .long 0xFFFFFFFF
+    .long 0x00030080
 
 /* TEST_DATA where to store data if necessary */
 .section ".TEST_DATA", "aw"
