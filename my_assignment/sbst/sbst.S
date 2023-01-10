@@ -248,37 +248,6 @@ c.bnez      x8, end_RG
     la sp, _sp
 
 
-/*
-################################
-####### DATARAM ################
-################################
-
-
-    la      t0, my_patterns
-    lw      t1, 7*4(t0)
-    li      t2, 0xFFFFFFFF   
-    li      t3, 0x00030200
-
-dram_all_1:
-    beq     t1, t3, end_dram_all1
-    sw      t2, 0*4(t1)
-    addi    t1, t1, 0x00000004
-    j       dram_all_1
-
-end_dram_all1:
-
-    lw      t1, 7*4(t0)
-    li      t2, 0x00000000
-
-dram_all_0:
-    beq     t1, t3, end_dram_all0
-    sw      t2, 0*4(t1)
-    addi    t1, t1, 0x00000004
-    j       dram_all_0
-
-end_dram_all0:
-
-*/
 
 ################################
 ####### MUL - DIV ##############
