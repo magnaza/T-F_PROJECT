@@ -247,6 +247,68 @@ c.bnez      x8, end_RG
     li x31, 0x0 
     la sp, _sp
 
+################################
+####### CS - REGISTER ##########
+################################
+
+li          t2, 0xFFFFFFFF
+li          t3, 0x00000000
+
+csrrw       t0, mstatus, t2
+csrrw       t4, mstatus, t3
+csrrw       t4, mstatus, t0
+csrrs       t4, mstatus, x0
+csrrc       t4, mstatus, x0
+csrrwi      t4, mstatus, 0x4
+csrrsi      t4, mstatus, 0x4
+csrrci      t4, mstatus, 0x4
+
+csrrw       t0, misa, t2
+csrrw       t4, misa, t3
+csrrw       t4, misa, t0
+
+csrrw       t0, mie, t2
+csrrw       t4, mie, t3
+csrrw       t4, mie, t0
+
+csrrw       t0, mtvec, t2
+csrrw       t4, mtvec, t3
+csrrw       t4, mtvec, t0
+
+
+csrrw       t0, mhpmevent3, t2
+csrrw       t4, mhpmevent3, t3
+csrrw       t4, mhpmevent3, t0
+
+csrrw       t0, mhpmevent31, t2
+csrrw       t4, mhpmevent31, t3
+csrrw       t4, mhpmevent31, t0
+
+csrrw       t0, mscratch, t2
+csrrw       t4, mscratch, t3
+csrrw       t4, mscratch, t0
+
+csrrw       t0, mepc, t2
+csrrw       t4, mepc, t3
+csrrw       t4, mepc, t0
+
+csrrw       t0, mcause, t2
+csrrw       t4, mcause, t3
+csrrw       t4, mcause, t0
+
+csrrw       t0, mip, t2
+csrrw       t4, mip, t3
+csrrw       t4, mip, t0
+
+
+csrrs       t0, mvendorid, x0
+
+csrrs       t0, marchid, x0
+
+csrrs       t0, mimpid, x0
+
+csrrs       t0, mhartid, x0
+
 
 
 ################################
@@ -349,8 +411,8 @@ c.bnez      x8, end_RG
 
     la      t3, my_patterns
     la      t4, test_result
-/*    c.swsp  x8, 0(sp)
-    c.lwsp  x8, 0(sp)*/
+    #c.swsp  x8, 0(sp)
+    #c.lwsp  x8, 0(sp)
     la      x9, test_result
     la      x8, my_patterns
     c.lw    x10, 2*4(x8)
@@ -373,7 +435,7 @@ jump5:
     c.bnez  x8, jump6
 jump6:
     #c.addi16sp  sp, 0x4
-    c.addi4spn  x8, sp, 0x4
+    #c.addi4spn  x8, sp, 0x4
 
 
     c.li    t1, 0x0 
