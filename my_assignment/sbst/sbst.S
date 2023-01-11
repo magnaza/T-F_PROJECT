@@ -185,8 +185,8 @@ c.bnez      x8, end_RG
     lw      x6, 6*4(x1)
 
 # THE FOLLOWING INSTRUCTIONS GENERATE ERRORS, I DONT KNOW WHY #
-/*    
-    lw      x7, 6*4(x1)
+   
+    lw      x6, 6*4(x1)
     lw      x8, 6*4(x1)    
     lw      x9, 6*4(x1)
     lw      x10, 6*4(x1)
@@ -214,7 +214,7 @@ c.bnez      x8, end_RG
  
     la      x31, my_patterns
     lw      x1, 6*4(x31)
-*/
+
     li x1,  0x0
     li x3,  0x0
     li x4,  0x0
@@ -259,11 +259,17 @@ c.bnez      x8, end_RG
     la      t0, test_result
     li      t2, 0xFFFFFFFF
     mul     t1, t2, t3
+    sw      t1, 0(t0)
     mulh    t1, t2, t3
+    sw      t1, 0(t0)
     div     t1, t3, t2
+    sw      t1, 0(t0)
     divu    t1, t3, t2
+    sw      t1, 0(t0)
     rem     t1, t3, t2
+    sw      t1, 0(t0)
     remu    t1, t3, t2
+    sw      t1, 0(t0)
     
 
 
@@ -271,9 +277,13 @@ c.bnez      x8, end_RG
 
     li      t3, 0x1
     mul     t1, t2, t3
+    sw      t1, 0(t0)
     mulh    t1, t2, t3
+    sw      t1, 0(t0)
     div     t1, t2, t3
+    sw      t1, 0(t0)
     divu    t1, t2, t3
+    sw      t1, 0(t0)
 
     # PROBLEM FOR REMINDER: HOW TO MAKE ALL THE BITS OF THE RESULT REMINDER 1?
 
@@ -282,31 +292,45 @@ c.bnez      x8, end_RG
     li      t2, 0x0
     li      t3, 0xFFFFFFFF
     mul     t1, t2, t3
+    sw      t1, 0(t0)
     mulh    t1, t2, t3
+    sw      t1, 0(t0)
     div     t1, t2, t3
+    sw      t1, 0(t0)
     divu    t1, t2, t3
+    sw      t1, 0(t0)
     rem     t1, t2, t3
+    sw      t1, 0(t0)
     remu    t1, t2, t3
+    sw      t1, 0(t0)
 
     # TEST 4:EXCEPTION -> N/0 T2 = 0x0 T3 = 0xFFFFFFFF T1 = ? #
     
     div     t1, t3, t2
+    sw      t1, 0(t0)
     divu    t1, t3, t2
+    sw      t1, 0(t0)
 
     # TEST 5: REMINDER -> T2 = 0x80000000 T3 = 0xFFFFFFFF T1 = 0x01111111
 
     li      t2, 0x80000000
     rem     t1, t3, t2
+    sw      t1, 0(t0)
     remu    t1, t3, t2
+    sw      t1, 0(t0)
   
     # THEY ARE NOT RECOGNIZE BY THE COMPILER??? update: NOW YES!
     
     li      t2, 0x0    
     mulhsu  t1, t2, t3
+    sw      t1, 0(t0)
     mulhu   t1, t2 ,t3
+    sw      t1, 0(t0)
     li      t2, 0xFFFFFFFF
     mulhsu  t1, t2, t3
+    sw      t1, 0(t0)
     mulhu   t1, t2 ,t3
+    sw      t1, 0(t0)
     
   
     # RESTORE INITIAL VALUES #
@@ -325,8 +349,8 @@ c.bnez      x8, end_RG
 
     la      t3, my_patterns
     la      t4, test_result
-    c.swsp  x8, 0(sp)
-    c.lwsp  x8, 0(sp)
+/*    c.swsp  x8, 0(sp)
+    c.lwsp  x8, 0(sp)*/
     la      x9, test_result
     la      x8, my_patterns
     c.lw    x10, 2*4(x8)
@@ -353,22 +377,36 @@ jump6:
 
 
     c.li    t1, 0x0 
+    sw      t1, 0(t0)
     c.lui   t2, 0xF
+    sw      t2, 0(t0)
     c.addi  t1, 0x4
+    sw      t1, 0(t0)
 
     c.slli  t1, 0x4
+    sw      t1, 0(t0)
     c.srli  x8, 0x4
+    sw      x8, 0(t0)
     c.srai  x8, 0x4
+    sw      x8, 0(t0)
     c.andi  x8, 0xF
+    sw      x8, 0(t0)
     li      t2, 0xFFFFFFFF
     li      t1, 0x00000000
     c.mv    x8, t2
+    sw      x8, 0(t0)
     c.mv    x9, t1
+    sw      x9, 0(t0)
     c.add   t1, t2
+    sw      t1, 0(t0)
     c.and   x8, x9
+    sw      x8, 0(t0)
     c.or    x8, x9
+    sw      x8, 0(t0)
     c.xor   x8, x9
+    sw      x8, 0(t0)
     c.sub   x8, x9
+    sw      x8, 0(t0)
     c.nop
 
 davideB_part:
@@ -380,66 +418,96 @@ davideF_part:
 ##### RV32I INSTRUCTIONS ######
 ###############################
 
+	la		t0, test_result
+
 ## R TYPE ##
-/*Arithmetic and Logic Operations*/
+#Arithmetic and Logic Operations
     li      t2, 0xFFFFFFFF
+    sw      t2, 0(t0)
     li      t4, 0x00000002
+    sw      t4, 0(t0)
     add     t1, t2, t3
+    sw      t1, 0(t0)
     sub     t1, t2, t3
+    sw      t1, 0(t0)
     xor     t1, t2, t3
+    sw      t1, 0(t0)
     or      t1, t2, t3
+    sw      t1, 0(t0)
     and     t1, t2, t3
+    sw      t1, 0(t0)
 
-/*Shift*/
+#Shift
     sll     t1, t2, t4
+    sw      t1, 0(t0)
     srl     t1, t2, t4
+    sw      t1, 0(t0)
     sra     t1, t2, t4
+    sw      t1, 0(t0)
 
-/*Set-Less-Then*/ 
-/*False*/   
+#Set-Less-Then 
+#False   
     slt     t1, t2, t3
+    sw      t1, 0(t0)
     sltu    t1, t2, t3
-/*True*/
+    sw      t1, 0(t0)
+#True
     slt     t1, t3, t2
+    sw      t1, 0(t0)
     sltu    t1, t3, t2
+    sw      t1, 0(t0)
 
 ## I TYPE ##
-/*Arithmetic and Logic Operations*/
+#Arithmetic and Logic Operations
     addi     t1, t2, 0x4
+    sw      t1, 0(t0)
     xori     t1, t2, 0xAA
+    sw      t1, 0(t0)
     ori      t1, t2, 0xAA
+    sw      t1, 0(t0)
     andi     t1, t2, 0xAA
+    sw      t1, 0(t0)
 
-/*Shift*/
+#Shift
     slli    t1, t2, 0x4
+    sw      t1, 0(t0)
     srli    t1, t2, 0x4
+    sw      t1, 0(t0)
     srai    t1, t2, 0x4
+    sw      t1, 0(t0)
 
-/*Set-Less-Then*/ 
-/*SLTUI NOT RECOGNIZED!!*/
-/*False*/   
+#Set-Less-Then 
+#SLTUI NOT RECOGNIZED!!
+#False   
     slti    t1, t2, 0x1
-/*    sltui   t1, t2, 0x1 */
-/*True*/
+    sw      t1, 0(t0)
+#    sltui   t1, t2, 0x1 
+#True
     slti    t1, t3, 0x1
-/*    sltui   t1, t3, 0x1 */
+    sw      t1, 0(t0)
+#    sltui   t1, t3, 0x1 
 
-/*Load */
+#Load 
 	la		t1, my_patterns
-	lb		t2,	0*4(t1)  	
+	lb		t2,	0*4(t1)
+    sw      t2, 0(t0)  	
 	lh		t3,	1*4(t1)
+    sw      t3, 0(t0)
 	lw		t4, 2*4(t1)
-	lbu	    t5,	3*4(t1)  	
+    sw      t4, 0(t0)
+	lbu	    t5,	3*4(t1)
+    sw      t5, 0(t0)  	
 	lhu 	t5,	4*4(t1)
+    sw      t5, 0(t0)
 
 ## S TYPE ##
-/*Store*/
+#Store
     sb      t2, 0(t0)
     sh      t3, 0(t0)
     sw      t4, 0(t0)
   
 ## B TYPE ##
-/*Branch not taken*/
+#Branch not taken
     li      t2, 0x00000004
     li      t4, 0x00000002
     beq     t2, t4, branch_1
@@ -448,7 +516,7 @@ davideF_part:
     bge     t4, t2, branch_1
     bltu    t2, t4, branch_1
     bgeu    t4, t2, branch_1 
-/*Branch taken*/
+#Branch taken
     beq     t2, t2, branch_1
 branch_1:
     bne     t4, t2, branch_2
@@ -463,7 +531,7 @@ branch_5:
 branch_6:
 
 ## J TYPE ##
-/*Jump*/
+#Jump
     li      t2, 0xFFFFFFFF
     li      t4, 0x00000002
     jal jump_1
@@ -474,7 +542,9 @@ jump_2:
 
 ## U TYPE ##
     lui     t1, 0x00001111
+    sw      t1, 0(t0)
     auipc   t1, 0x00000010
+    sw      t1, 0(t0)
 
 
 /****** ////\\\\*******              
